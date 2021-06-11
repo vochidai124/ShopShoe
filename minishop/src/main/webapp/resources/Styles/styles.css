@@ -11,7 +11,7 @@ ul{
 	list-style-type: none;
 }
 #body-login {
-	background-color: #00909C;
+	background-color: #7e746d;
 }
 /* star css dang nhap */
 #body-flex-login {
@@ -111,7 +111,14 @@ ul{
 	box-shadow: 3px 7px 10px skyblue;
 	border-radius: 5px;
 }
-
+.footer-input:focus, .footer-textarea:focus {
+	outline: none;
+	border: 2px solid #969696;
+}
+.footer-button:focus {
+	outline: none;
+	border: 2px solid #469af5;
+}
 .input-icon-email {
 	background-image: url(../image/icon_email.png);
 	background-size: 35px 35px;
@@ -189,10 +196,13 @@ div p img {
 .nav_left li {
 	margin-left: -30px;
 }
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,0.8);
+}
 
 #icon-yame {
-	width: 100px;
-	height: 80px;
+	width: 120px;
+	height: 70px;
 }
 
 .active a {
@@ -210,29 +220,27 @@ ul li a {
 
 .dropdown {
 	position: relative;
-	display: inline-block;
 }
 
 .dropdown-menu {
 	display: none;
+	left: -4px;
 	position: absolute;
-	background-color: white;
-	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	background-color: #d0b4b4;
+	box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.8);
 	z-index: 1;
 }
 
-.dropdown-menu a {
-	color: black;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
+.dropdown-item {
+	padding:10px 0;
+	margin:0;
+	width: 100%;
+	text-align:center;
+
 }
 
 .dropdown-item:hover {
-	color: blue;
-	font-size: 15px;
-	width: 0px;
+	background-color:#d2c7c7;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -396,5 +404,3 @@ div textarea {
 		 margin-left: auto; 
 	}
 }
-
-/* end css trang chu */

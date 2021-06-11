@@ -1,7 +1,5 @@
 package com.vochidai.controller;
 
-import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.vochidai.entity.NhanVien;
+import com.vochidai.entity.SanPham;
 
 @Controller
 @RequestMapping("/")
 public class TrangChuController{
 	
-/*	@Autowired
+	@Autowired
 	SessionFactory sessionFactory;
-	@GetMapping
+/*	@GetMapping
 	@Transactional
 	public String Default(){
 		
@@ -34,8 +33,22 @@ public class TrangChuController{
 	}
 	*/
 	@GetMapping
+	@Transactional
 	public String Default(){
+		Session session = sessionFactory.getCurrentSession();
+		
+		SanPham sanPham = new SanPham();
+		sanPham.setTensanpham("ga ran");
+		sanPham.setGiatien("100.000 VND");
+		
+		NhanVien nhanVien = new NhanVien();
+		nhanVien.setTennhanvien("che cong binh");
+		nhanVien.setTuoi(18);
+		
+		sanPham.setNhanvien(nhanVien);
+		session.save(sanPham);
 		
 		return "trangchu";
 	}
+
 }

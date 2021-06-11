@@ -61,10 +61,8 @@
 					<span>${kiemtradangnhap }</span>
 				</div>
 				<div id="container-social-login">
-					<img alt="icon_facebook"
-						src='<c:url value="/resources/image/icon_facebook.png"/>' /> <img
-						alt="icon_google"
-						src='<c:url value="/resources/image/icon_google.png"/>' />
+					<img alt="icon_facebook" src='<c:url value="/resources/image/icon_facebook.png"/>' /> 
+					<img alt="icon_google" src='<c:url value="/resources/image/icon_google.png"/>' />
 				</div>
 			</div>
 		</div>

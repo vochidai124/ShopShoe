@@ -16,6 +16,19 @@ public class NhanVien {
 	String tennhanvien;
 	int tuoi;
 	
+	
+	public NhanVien() {
+		
+	}
+	public NhanVien(int idnhanvien, String tennhanvien, int tuoi) {
+		this.idnhanvien = idnhanvien;
+		this.tennhanvien = tennhanvien;
+		this.tuoi = tuoi;
+	}
+	public NhanVien(String tennhanvien, int tuoi) {
+		this.tennhanvien = tennhanvien;
+		this.tuoi = tuoi;
+	}
 	public int getIdnhanvien() {
 		return idnhanvien;
 	}
