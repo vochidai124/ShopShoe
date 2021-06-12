@@ -1,51 +1,88 @@
 package com.vochidai.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "nhanvien")
+@Table(name="nhanvien")
 public class NhanVien {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int idnhanvien;
-	String tennhanvien;
-	int tuoi;
+	int manhanvien;
+	String hoten;
+	String diachi;
+	boolean gioitinh;
+	String cmnd;
 	
+	@OneToOne@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "machucvu")
+	ChucVu chucvu;
 	
-	public NhanVien() {
-		
+	String email;
+	String tendangnhap;
+	String matkhau;
+	
+	public int getManhanvien() {
+		return manhanvien;
 	}
-	public NhanVien(int idnhanvien, String tennhanvien, int tuoi) {
-		this.idnhanvien = idnhanvien;
-		this.tennhanvien = tennhanvien;
-		this.tuoi = tuoi;
+	public void setManhanvien(int manhanvien) {
+		this.manhanvien = manhanvien;
 	}
-	public NhanVien(String tennhanvien, int tuoi) {
-		this.tennhanvien = tennhanvien;
-		this.tuoi = tuoi;
+	public String getHoten() {
+		return hoten;
 	}
-	public int getIdnhanvien() {
-		return idnhanvien;
+	public void setHoten(String hoten) {
+		this.hoten = hoten;
 	}
-	public void setIdnhanvien(int idnhanvien) {
-		this.idnhanvien = idnhanvien;
+	public String getDiachi() {
+		return diachi;
 	}
-	public String getTennhanvien() {
-		return tennhanvien;
+	public void setDiachi(String diachi) {
+		this.diachi = diachi;
 	}
-	public void setTennhanvien(String tennhanvien) {
-		this.tennhanvien = tennhanvien;
+	public boolean isGioitinh() {
+		return gioitinh;
 	}
-	public int getTuoi() {
-		return tuoi;
+	public void setGioitinh(boolean gioitinh) {
+		this.gioitinh = gioitinh;
 	}
-	public void setTuoi(int tuoi) {
-		this.tuoi = tuoi;
+	public String getCmnd() {
+		return cmnd;
+	}
+	public void setCmnd(String cmnd) {
+		this.cmnd = cmnd;
+	}
+	public ChucVu getChucvu() {
+		return chucvu;
+	}
+	public void setChucvu(ChucVu chucvu) {
+		this.chucvu = chucvu;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getTendangnhap() {
+		return tendangnhap;
+	}
+	public void setTendangnhap(String tendangnhap) {
+		this.tendangnhap = tendangnhap;
+	}
+	public String getMatkhau() {
+		return matkhau;
+	}
+	public void setMatkhau(String matkhau) {
+		this.matkhau = matkhau;
 	}
 	
 }
