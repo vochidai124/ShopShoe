@@ -16,6 +16,8 @@ public class ChiTietSanPham {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int machitietsanpham;
+	int soluong;
+	String ngaynhap;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "masanpham")
@@ -29,8 +31,7 @@ public class ChiTietSanPham {
 	@JoinColumn(name = "mamau")
 	MauSanPham mausanpham;
 	
-	int soluong;
-	String ngaynhap;
+
 	public int getMachitietsanpham() {
 		return machitietsanpham;
 	}

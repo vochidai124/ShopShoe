@@ -21,15 +21,14 @@ public class NhanVien {
 	String diachi;
 	boolean gioitinh;
 	String cmnd;
-	
-	@OneToOne@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "machucvu")
-	ChucVu chucvu;
-	
 	String email;
 	String tendangnhap;
 	String matkhau;
 	
+	@OneToOne@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "machucvu")
+	ChucVu chucvu;
+
 	public int getManhanvien() {
 		return manhanvien;
 	}

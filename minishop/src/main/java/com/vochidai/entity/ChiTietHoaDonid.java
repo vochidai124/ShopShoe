@@ -2,6 +2,9 @@ package com.vochidai.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class ChiTietHoaDonid implements Serializable{
 	
 	int mahoadon;

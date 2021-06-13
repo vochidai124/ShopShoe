@@ -29,6 +29,9 @@
     		<list>
     			<value>com.vochidai.entity</value>
     			<value>com.vochidai.controller</value>
+    			<value>com.vochidai.dao</value>
+    			<value>com.vochidai.service</value>
+    			<value>com.vochidai.daoimp</value>
     		</list>
     	</property>
     	<property name="hibernateProperties" value="classpath:hibernate.properties" />
