@@ -45,11 +45,9 @@
 				</div>
 				<div id="container-center-login-right">
 					<div id="container-center-login-right"class="container-login-form">
-						<form action="" method="post">
-							<input id="email" name="email" class="material-textinput input-icon-email" placeholder="Email" type="text" /><br />
-							<input id="matkhau" name="matkhau" class="material-textinput input-icon-password" placeholder="Mật Khẩu" type="password" /><br /> 
-							<input id="btnDangNhap" class="material-primary-button" type="submit" value="ĐĂNG NHẬP" />
-						</form>
+						<input id="email" name="email" class="material-textinput input-icon-email" placeholder="Email" type="text" /><br />
+						<input id="matkhau" name="matkhau" class="material-textinput input-icon-password" placeholder="Mật Khẩu" type="password" /><br /> 
+						<input id="btnDangNhap" class="material-primary-button" type="submit" value="ĐĂNG NHẬP" />
 					</div>
 					<div id="container-center-login-right"class="container-signup-form">
 						<form action="" method="post">

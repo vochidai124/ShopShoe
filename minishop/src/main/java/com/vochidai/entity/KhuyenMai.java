@@ -25,22 +25,9 @@ public class KhuyenMai {
 	String thoigianketthuc;
 	String mota;
 	String hinhkhuyenmai;
-	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "chitietkhuyenmai",
-	joinColumns = {@JoinColumn(name="makhuyenmai",referencedColumnName = "makhuyenmai")},
-	inverseJoinColumns = {@JoinColumn(name="masanpham",referencedColumnName = "masanpham")})
-	Set<SanPham> danhsachsanpham;
+
 	
 	
-	
-	
-	public Set<SanPham> getDanhsachsanpham() {
-		return danhsachsanpham;
-	}
-	public void setDanhsachsanpham(Set<SanPham> danhsachsanpham) {
-		this.danhsachsanpham = danhsachsanpham;
-	}
 	public int getGiagiam() {
 		return giagiam;
 	}

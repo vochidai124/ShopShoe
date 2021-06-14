@@ -26,35 +26,19 @@ public class SanPham {
 	String giatien;
 	String mota;
 	String hinhsanpham;
+	String danhcho;
 	
 	@OneToOne@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "madanhmuc")
 	DanhMucSanPham danhmucsanpham;
-	
-	@OneToMany(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
-	@JoinColumn(name = "masanpham")
-	Set<ChiTietSanPham> chitietsanpham;
-	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "chitietkhuyenmai",
-	joinColumns = {@JoinColumn(name="masanpham",referencedColumnName = "masanpham")},
-	inverseJoinColumns = {@JoinColumn(name="makhuyenmai",referencedColumnName = "makhuyenmai")})
-	Set<KhuyenMai> danhsachkhuyenmai;
-	
-	
-	
-	public Set<ChiTietSanPham> getChitietsanpham() {
-		return chitietsanpham;
+
+	public String getDanhcho() {
+		return danhcho;
 	}
-	public void setChitietsanpham(Set<ChiTietSanPham> chitietsanpham) {
-		this.chitietsanpham = chitietsanpham;
+	public void setDanhcho(String danhcho) {
+		this.danhcho = danhcho;
 	}
-	public Set<KhuyenMai> getDanhsachkhuyenmai() {
-		return danhsachkhuyenmai;
-	}
-	public void setDanhsachkhuyenmai(Set<KhuyenMai> danhsachkhuyenmai) {
-		this.danhsachkhuyenmai = danhsachkhuyenmai;
-	}
+
 	public int getMasanpham() {
 		return masanpham;
 	}

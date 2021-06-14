@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	
 	$("#btnDangNhap").click(function() {
 		var ten = $("#email").val();
 		var password = $("#matkhau").val();
@@ -10,17 +11,19 @@ $(document).ready(function() {
 				matkhau: password
 			},
 			success: function(value) {
-				if (value == "true") {
-					duongDanHienTai = window.location.href;
-					duongDan = duongDanHienTai.replace("dangnhap/", "");
+				if(value == "true"){
+					duongDanHienTai = window.location.href
+					duongDan = duongDanHienTai.replace("dangnhap/","");
 					window.location = duongDan;
-				} else {
-					$("#ketqua").text("dang nhap that bai");
 				}
-			}
+				else{
+					$("#ketqua").text("thatbai");
+				}
+		}
 		});
 	});
 });
+	
 	$("#dangnhap").click(function(){
 		$(this).addClass("actived");
 		$("#dangky").removeClass("actived");

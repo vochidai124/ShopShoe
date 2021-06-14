@@ -24,13 +24,28 @@ public class NhanVienDAO implements NhanVienImp{
 	@Transactional
 	public boolean KiemTraDangNhap(String email, String matkhau) {
 		Session session = sessionFactory.getCurrentSession();
-		List<NhanVien> nhanviens = (List<NhanVien>) session.createQuery("FROM NhanVien where email = '" + email + "' and matkhau='" + matkhau + "'").getResultList();
-		if(nhanviens.size() != 0) {
+		try {
+			NhanVien nhanVien = (NhanVien) session.createQuery("from NhanVien where email = '" + email + "' and matkhau='" + matkhau + "'").getSingleResult();
+			if(nhanVien != null) {
+				return true;
+			}else {
+				return false;
+			}
+		}catch(Exception e) {
+			return false;
+		}
+	}
+	
+	@Transactional
+	public boolean ThemNhanVien(NhanVien nhanVien) {
+		Session session = sessionFactory.getCurrentSession();
+		int manhanvien=(Integer) session.save(nhanVien);
+		if(manhanvien>0) {
 			return true;
 		}else {
 			return false;
 		}
-	} 
+	}
 	
 	 
 }
