@@ -5,5 +5,5 @@ import java.util.List;
 import com.vochidai.entity.SanPham;
 
 public interface SanPhamImp {
-	List<SanPham> LayDanhSachSanPham();
+	List<SanPham> LayDanhSachSanPham(int spbatdau);
 }

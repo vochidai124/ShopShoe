@@ -26,7 +26,11 @@ public class KhuyenMai {
 	String mota;
 	String hinhkhuyenmai;
 
-	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "chitietsanpham",
+	joinColumns = {@JoinColumn(name = "makhuyenmai", referencedColumnName = "makhuyenmai")},
+	inverseJoinColumns = {@JoinColumn(name = "masanpham", referencedColumnName = "masanpham")})
+	Set<SanPham> danhmucsanpham;
 	
 	public int getGiagiam() {
 		return giagiam;

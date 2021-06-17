@@ -14,6 +14,7 @@ public class MauSanPham {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int mamau;
 	String tenmau;
+	
 	public int getMamau() {
 		return mamau;
 	}

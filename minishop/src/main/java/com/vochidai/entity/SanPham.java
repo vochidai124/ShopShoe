@@ -28,10 +28,20 @@ public class SanPham {
 	String hinhsanpham;
 	String danhcho;
 	
-	@OneToOne@OneToMany(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "madanhmuc")
 	DanhMucSanPham danhmucsanpham;
-
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "masanpham")
+	Set<ChiTietSanPham> chitietsanpham;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "chitietsanpham",
+	joinColumns = {@JoinColumn(name = "masanpham", referencedColumnName = "masanpham")},
+	inverseJoinColumns = {@JoinColumn(name = "makhuyenmai", referencedColumnName = "makhuyenmai")})
+	Set<KhuyenMai> danhsachkhuyenmai;
+	
 	public String getDanhcho() {
 		return danhcho;
 	}

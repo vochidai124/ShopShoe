@@ -15,9 +15,9 @@ public class SanPhamService implements SanPhamImp{
 	@Autowired
 	SanPhamDAO sanPhamDAO;
 	
-	public List<SanPham> LayDanhSachSanPham() {
+	public List<SanPham> LayDanhSachSanPham(int spbatdau) {
 		
-		return sanPhamDAO.LayDanhSachSanPham();
+		return sanPhamDAO.LayDanhSachSanPham(spbatdau);
 	}
 
 }

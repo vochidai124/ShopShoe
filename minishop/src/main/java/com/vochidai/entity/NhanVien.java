@@ -25,7 +25,7 @@ public class NhanVien {
 	String tendangnhap;
 	String matkhau;
 	
-	@OneToOne@OneToMany(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "machucvu")
 	ChucVu chucvu;
 

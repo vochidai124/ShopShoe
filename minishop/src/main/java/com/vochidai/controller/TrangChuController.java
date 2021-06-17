@@ -32,10 +32,8 @@ public class TrangChuController{
 			modelMap.addAttribute("chucaidau",chucaidau);
 		}
 		
-		List<SanPham> listSanPhams = sanPhamService.LayDanhSachSanPham();
-		for(SanPham sp : listSanPhams) {
-			System.out.println("ten san pham " + sp.getTensanpham());
-		}
+		List<SanPham> listSanPhams = sanPhamService.LayDanhSachSanPham(0);
+		modelMap.addAttribute("listSanPhams", listSanPhams);
 		
 		return "trangchu";
 	}

@@ -14,6 +14,7 @@ public class ChucVu {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int machucvu;
 	String tenchucvu;
+	
 	public int getMachucvu() {
 		return machucvu;
 	}

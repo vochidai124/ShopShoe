@@ -22,9 +22,9 @@ public class SanPhamDAO implements SanPhamImp{
 	SessionFactory sessionFactory;
 	
 	@Transactional
-	public List<SanPham> LayDanhSachSanPham() {
+	public List<SanPham> LayDanhSachSanPham(int spbatdau) {
 		Session session = sessionFactory.getCurrentSession();
-		List<SanPham> listSanPhams = (List<SanPham>) session.createQuery("from SanPham").getResultList();
+		List<SanPham> listSanPhams = (List<SanPham>) session.createQuery("from SanPham").setFirstResult(spbatdau).setMaxResults(10).getResultList();
 		return listSanPhams;
 	}
 
