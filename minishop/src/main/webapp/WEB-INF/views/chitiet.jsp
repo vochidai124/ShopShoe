@@ -269,7 +269,7 @@
 						</li>
 						<li><i class="container_heading-item fas fa-angle-right"></i></li>
 						<li class="container_heading-item">
-							[Mã SKAMSALE06 giảm 10% TỐI ĐA 100K đơn 150K] Giày thể thao nam mẫu mới 2021 êm chân thoáng khí
+							${sanPham.getTensanpham() }
 						</li>
 					</ul>
 				</div>
@@ -277,6 +277,15 @@
 				<!-- chi tiết sản phẩm -->
 				<div class="grid">
 					<div class="container_product">
+						<div class="container_product-category">
+							<h4 class="container_product-category__heading category__heading">Danh Mục</h4>
+							<ul class="category-list">
+								<li class="category-item category-item--active"><a href="#" class="category-item__link">Giày thể thao</a></li>
+								<li class="category-item"><a href="#" class="category-item__link">Giày thể dục</a></li>
+								<li class="category-item"><a href="#" class="category-item__link">Giày cao gót</a></li>
+								<li class="category-item"><a href="#" class="category-item__link">Giày Sneaker</a></li>
+							</ul>
+						</div>
 						<div class="container_product-left">
 							<a href="#"><img class="container_product-left-img" alt="#" src='<c:url value = "/resources/image/sanpham/${sanPham.getHinhsanpham() }" />'></a>
 						</div>
