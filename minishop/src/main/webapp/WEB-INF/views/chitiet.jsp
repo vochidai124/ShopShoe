@@ -278,7 +278,7 @@
 				<div class="grid">
 					<div class="container_product">
 						<div class="container_product-left">
-							<a href="#"><img class="container_product-left-img" alt="#" src='<c:url value = "/resources/image/sanpham/sanpham_6.jpg" />'></a>
+							<a href="#"><img class="container_product-left-img" alt="#" src='<c:url value = "/resources/image/sanpham/${sanPham.getHinhsanpham() }" />'></a>
 						</div>
 						
 						<div class="container_product-right">
@@ -286,11 +286,15 @@
 								<div class="container_product-table">
 									<h4>${sanPham.getTensanpham() }</h4>
 									<span>${sanPham.getGiatien() } đ</span>
-									<table>
-										<tr class="container_product-table-column"><td>Sonoo</td><td>Jaiswal</td><td><a href="#">còn 23</a></td><td><a href="#">còn 23</a></td><td><button class="btn btn--primary">Mua Ngay</button></td></tr>
-										<tr class="container_product-table-column"><td>Sonoo</td><td>Jaiswal</td><td><a href="#">còn 23</a></td><td><a href="#">còn 23</a></td><td><button class="btn btn--primary">Mua Ngay</button></td></tr>
-										<tr class="container_product-table-column"><td>Sonoo</td><td>Jaiswal</td><td><a href="#">còn 23</a></td><td><a href="#">còn 23</a></td><td><button class="btn btn--primary">Mua Ngay</button></td></tr>
-									</table>
+									<table><tbody>
+									<c:forEach var="chitietsanpham" items="${sanPham.getChitietsanpham() }">
+										<tr class="container_product-table-column">
+										<td>${chitietsanpham.getMausanpham().getTenmau() }</td>
+										<td>${chitietsanpham.getSizesanpham().getSize() }</td>
+										<td><a href="#">${chitietsanpham.getSoluong() }</a></td>
+										<td><button class="btn btn--primary">Mua Ngay</button></td></tr>	
+									</c:forEach>
+									</tbody></table>
 								</div>
 								<div class="container_product-decs">
 									<h5>Mô tả sản phẩm</h5>

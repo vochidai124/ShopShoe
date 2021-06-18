@@ -22,17 +22,16 @@ public class SanPham {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int masanpham;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "madanhmuc")
+	DanhMucSanPham danhmucsanpham;
 	String tensanpham;
 	String giatien;
 	String mota;
 	String hinhsanpham;
 	String danhcho;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "madanhmuc")
-	DanhMucSanPham danhmucsanpham;
-	
-	@OneToMany(cascade = CascadeType.ALL)
+
+	@OneToMany(fetch = FetchType.EAGER , cascade = CascadeType.ALL)
 	@JoinColumn(name = "masanpham")
 	Set<ChiTietSanPham> chitietsanpham;
 	

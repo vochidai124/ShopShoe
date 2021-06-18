@@ -25,7 +25,7 @@ public class SanPhamDAO implements SanPhamImp{
 	@Transactional
 	public List<SanPham> LayDanhSachSanPham(int spbatdau) {
 		Session session = sessionFactory.getCurrentSession();
-		List<SanPham> listSanPhams = (List<SanPham>) session.createQuery("from SanPham").setFirstResult(spbatdau).setMaxResults(10).getResultList();
+		List<SanPham> listSanPhams = (List<SanPham>) session.createQuery("from SanPham").setFirstResult(spbatdau).setMaxResults(20).getResultList();
 		return listSanPhams;
 	}
 	
@@ -34,7 +34,6 @@ public class SanPhamDAO implements SanPhamImp{
 		Session session = sessionFactory.getCurrentSession();
 		String sql = "from SanPham sp where sp.masanpham = " + masanpham;
 		SanPham sanPham = (SanPham) session.createQuery(sql).getSingleResult();
-		
 		return sanPham;
 		
 		}

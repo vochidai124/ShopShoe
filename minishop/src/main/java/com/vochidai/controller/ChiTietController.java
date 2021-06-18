@@ -1,7 +1,5 @@
 package com.vochidai.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -21,7 +19,7 @@ public class ChiTietController {
 	@GetMapping("/{masanpham}")
 	public String Default(@PathVariable int masanpham, ModelMap modelMap) {
 
-		SanPham sanPham = sanPhamService.LayDanhSachChiTietSanPhamTheoMa(masanpham);
+		SanPham sanPham = (SanPham) sanPhamService.LayDanhSachChiTietSanPhamTheoMa(masanpham);
 		modelMap.addAttribute("sanPham", sanPham);
 		
 		return "chitiet";
