@@ -321,7 +321,7 @@
                                 <!-- Product item -->
                                 <c:forEach var = "sanpham" items = "${listSanPhams }">
                                  <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="chitiet">
+                                    <a class="home-product-item" href="chitiet/${sanpham.getMasanpham() }">
                                         <div class="home-product-item__img" style="background-image: url(./resources/image/sanpham/${sanpham.getHinhsanpham()});"></div>
                                         <h4 class="home-product-item__name">${sanpham.getTensanpham() }</h4>
                                         <div class="home-product-item__price">

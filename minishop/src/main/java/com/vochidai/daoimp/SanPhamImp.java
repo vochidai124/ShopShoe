@@ -6,4 +6,7 @@ import com.vochidai.entity.SanPham;
 
 public interface SanPhamImp {
 	List<SanPham> LayDanhSachSanPham(int spbatdau);
+	
+	SanPham LayDanhSachChiTietSanPhamTheoMa(int masanpham);
+	
 }

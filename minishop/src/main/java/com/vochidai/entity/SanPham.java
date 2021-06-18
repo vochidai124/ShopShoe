@@ -42,6 +42,18 @@ public class SanPham {
 	inverseJoinColumns = {@JoinColumn(name = "makhuyenmai", referencedColumnName = "makhuyenmai")})
 	Set<KhuyenMai> danhsachkhuyenmai;
 	
+	public Set<ChiTietSanPham> getChitietsanpham() {
+		return chitietsanpham;
+	}
+	public void setChitietsanpham(Set<ChiTietSanPham> chitietsanpham) {
+		this.chitietsanpham = chitietsanpham;
+	}
+	public Set<KhuyenMai> getDanhsachkhuyenmai() {
+		return danhsachkhuyenmai;
+	}
+	public void setDanhsachkhuyenmai(Set<KhuyenMai> danhsachkhuyenmai) {
+		this.danhsachkhuyenmai = danhsachkhuyenmai;
+	}
 	public String getDanhcho() {
 		return danhcho;
 	}

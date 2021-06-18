@@ -284,8 +284,8 @@
 						<div class="container_product-right">
 							<div class="container_product-info">
 								<div class="container_product-table">
-									<h4>Giày thể thao nam mẫu mới 2021 êm chân thoáng khí</h4>
-									<span>185.000 đ</span>
+									<h4>${sanPham.getTensanpham() }</h4>
+									<span>${sanPham.getGiatien() } đ</span>
 									<table>
 										<tr class="container_product-table-column"><td>Sonoo</td><td>Jaiswal</td><td><a href="#">còn 23</a></td><td><a href="#">còn 23</a></td><td><button class="btn btn--primary">Mua Ngay</button></td></tr>
 										<tr class="container_product-table-column"><td>Sonoo</td><td>Jaiswal</td><td><a href="#">còn 23</a></td><td><a href="#">còn 23</a></td><td><button class="btn btn--primary">Mua Ngay</button></td></tr>
@@ -294,10 +294,7 @@
 								</div>
 								<div class="container_product-decs">
 									<h5>Mô tả sản phẩm</h5>
-										<p>Giày Sneaker Thể Thao Nữ mới về đốn tim người nhìn bởi phong cách " Đơn giản nhưng không tầm thường "  đem đến một cô nàng thanh lịch , thời thượng 
-										Hô biến outfit mỗi ngày trở nên hiện đại , trẻ trung , xinh đẹp khi diện 
-										Thích hợp khi đi chơi, đi dạo phố , đi làm
-										</p>
+										<p>${sanPham.getMota() }</p>
 								</div>
 							</div>
 							<div class="container_product-right-bottom">

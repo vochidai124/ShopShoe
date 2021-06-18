@@ -20,4 +20,9 @@ public class SanPhamService implements SanPhamImp{
 		return sanPhamDAO.LayDanhSachSanPham(spbatdau);
 	}
 
+	public SanPham LayDanhSachChiTietSanPhamTheoMa(int masanpham) {
+		
+		return sanPhamDAO.LayDanhSachChiTietSanPhamTheoMa(masanpham);
+	}
+
 }

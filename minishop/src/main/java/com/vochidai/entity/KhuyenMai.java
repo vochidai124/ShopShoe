@@ -32,6 +32,12 @@ public class KhuyenMai {
 	inverseJoinColumns = {@JoinColumn(name = "masanpham", referencedColumnName = "masanpham")})
 	Set<SanPham> danhmucsanpham;
 	
+	public Set<SanPham> getDanhmucsanpham() {
+		return danhmucsanpham;
+	}
+	public void setDanhmucsanpham(Set<SanPham> danhmucsanpham) {
+		this.danhmucsanpham = danhmucsanpham;
+	}
 	public int getGiagiam() {
 		return giagiam;
 	}

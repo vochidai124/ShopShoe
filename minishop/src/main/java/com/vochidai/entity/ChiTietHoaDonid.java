@@ -9,7 +9,6 @@ public class ChiTietHoaDonid implements Serializable{
 	
 	int mahoadon;
 	int machitietsanpham;
-	
 	public int getMahoadon() {
 		return mahoadon;
 	}
@@ -22,5 +21,6 @@ public class ChiTietHoaDonid implements Serializable{
 	public void setMachitietsanpham(int machitietsanpham) {
 		this.machitietsanpham = machitietsanpham;
 	}
+	
 	
 }
