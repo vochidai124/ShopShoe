@@ -280,10 +280,9 @@
 						<div class="container_product-category">
 							<h4 class="container_product-category__heading category__heading">Danh Mục</h4>
 							<ul class="category-list">
-								<li class="category-item category-item--active"><a href="#" class="category-item__link">Giày thể thao</a></li>
-								<li class="category-item"><a href="#" class="category-item__link">Giày thể dục</a></li>
-								<li class="category-item"><a href="#" class="category-item__link">Giày cao gót</a></li>
-								<li class="category-item"><a href="#" class="category-item__link">Giày Sneaker</a></li>
+								<c:forEach var="danhmuc" items="${danhmuc }">
+									<li class="category-item"><a href="#" class="category-item__link">${danhmuc.getTendanhmuc() }</a></li>
+								</c:forEach>
 							</ul>
 						</div>
 						<div class="container_product-left">
@@ -293,15 +292,15 @@
 						<div class="container_product-right">
 							<div class="container_product-info">
 								<div class="container_product-table">
-									<h4>${sanPham.getTensanpham() }</h4>
-									<span>${sanPham.getGiatien() } đ</span>
+									<h4 id="tensp" data-masp="${sanPham.getMasanpham() }">${sanPham.getTensanpham() }</h4>
+									<span id="giatien" data-value="${sanPham.getGiatien() }">${sanPham.getGiatien() } VNĐ</span>
 									<table><tbody>
 									<c:forEach var="chitietsanpham" items="${sanPham.getChitietsanpham() }">
 										<tr class="container_product-table-column">
-										<td>${chitietsanpham.getMausanpham().getTenmau() }</td>
-										<td>${chitietsanpham.getSizesanpham().getSize() }</td>
-										<td><a href="#">${chitietsanpham.getSoluong() }</a></td>
-										<td><button class="btn btn--primary">Mua Ngay</button></td></tr>	
+										<td class="mau" data-mamau="${chitietsanpham.getMausanpham().getMamau() }">${chitietsanpham.getMausanpham().getTenmau() }</td>
+										<td class="size" data-masize="${chitietsanpham.getSizesanpham().getMasize() }">${chitietsanpham.getSizesanpham().getSize() }</td>
+										<td class="soluong">${chitietsanpham.getSoluong() }</td>
+										<td><button class="btn btn--primary btn-cart">Mua Ngay</button></td></tr>	
 									</c:forEach>
 									</tbody></table>
 								</div>
