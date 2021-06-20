@@ -61,8 +61,19 @@ $(document).ready(function() {
 				tensize: tensize
 			},
 			success: function(value) {
-				
+				$(".header__cart-wrap").find("span").addClass("header__cart-notice");
+				$(".header__cart-wrap").find("span").html(value);
 			}
+		})/*.done(function(){
+			$.ajax({
+			url: "/minishop/api/LaySoLuongGioHang",
+			type: "GET",
+			success: function(value) {
+				$(".header__cart-wrap").find("span").addClass("header__cart-notice");
+				$(".header__cart-wrap").find("span").html(value);
+			}
+			
 		})
+		});*/
 		
 });

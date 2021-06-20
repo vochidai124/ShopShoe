@@ -172,7 +172,12 @@
                     <div class="header__cart">
                         <div class="header__cart-wrap">
                             <i class="header__search-icon fas fa-shopping-cart"></i>
-                            <span class="header__cart-notice">3</span>
+                            <c:if test="${soluongspgiohang > 0}">
+                            	<span class="header__cart-notice">${soluongspgiohang }</span>
+                            </c:if>
+                            <c:if test="${soluongspgiohang <= 0 || soluongspgiohang == null}">
+                            	<span>${soluongspgiohang }</span>
+                            </c:if>
                             <!-- No cart: header__cart-list--no-cart -->
                             <div class="header__cart-list">
                                 <img src='<c:url value = "/resources/image/empty_cart.png" />' alt="img_no_cart" class="header__cart-no-cart-img">
@@ -300,7 +305,7 @@
 										<td class="mau" data-mamau="${chitietsanpham.getMausanpham().getMamau() }">${chitietsanpham.getMausanpham().getTenmau() }</td>
 										<td class="size" data-masize="${chitietsanpham.getSizesanpham().getMasize() }">${chitietsanpham.getSizesanpham().getSize() }</td>
 										<td class="soluong">${chitietsanpham.getSoluong() }</td>
-										<td><button class="btn btn--primary btn-cart">Mua Ngay</button></td></tr>	
+										<td><button class="btn btn--primary btn-cart">Giỏ Hàng</button></td></tr>	
 									</c:forEach>
 									</tbody></table>
 								</div>

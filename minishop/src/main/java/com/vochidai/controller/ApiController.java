@@ -39,7 +39,7 @@ public class ApiController {
 	
 	@GetMapping("ThemGioHang")
 	@ResponseBody
-	public void ThemGioHang(@RequestParam int masp, @RequestParam int masize, @RequestParam int mamau,
+	public String ThemGioHang(@RequestParam int masp, @RequestParam int masize, @RequestParam int mamau,
 			@RequestParam String tensp, @RequestParam String giatien, @RequestParam String tenmau,
 			@RequestParam String tensize, @RequestParam int soluong, HttpSession httpSession) {
 		if(httpSession.getAttribute("giohang") == null) {
@@ -55,9 +55,8 @@ public class ApiController {
 		
 		gioHangs.add(gioHang);
 		httpSession.setAttribute("giohang", gioHangs);
-		
-		List<GioHang> listGioHangs=(List<GioHang>) httpSession.getAttribute("giohang");
-		System.out.println(listGioHangs.size());
+
+		return gioHangs.size() + "";
 		
 	} else {
 		List<GioHang> listGioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
@@ -79,22 +78,29 @@ public class ApiController {
 			int soluongmoi = listGioHangs.get(vitri).getSoluong() + 1;
 			listGioHangs.get(vitri).setSoluong(soluongmoi);
 		}
+		return listGioHangs.size() + "";
 	}
-	List<GioHang> listGioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
-	for(GioHang gioHang:listGioHangs) {
-		System.out.println(gioHang.getMasp()+" - "+gioHang.getTenmau()+" - "+gioHang.getTensize()+" - "+gioHang.getSoluong());
-		System.out.println("--------------------");
-	}
+	
 }
 
-private int KiemTraSanPhamDaTonTaiGioHang(List<GioHang> listGioHangs ,HttpSession httpSession, int masp, int masize, int mamau) {
+	private int KiemTraSanPhamDaTonTaiGioHang(List<GioHang> listGioHangs ,HttpSession httpSession, int masp, int masize, int mamau) {
 
-	for (int i = 0; i < listGioHangs.size(); i++) {
-		if (listGioHangs.get(i).getMasp() == masp && listGioHangs.get(i).getMamau() == mamau
-				&& listGioHangs.get(i).getMasize() == masize) {
-			return i;
+		for (int i = 0; i < listGioHangs.size(); i++) {
+			if (listGioHangs.get(i).getMasp() == masp && listGioHangs.get(i).getMamau() == mamau
+					&& listGioHangs.get(i).getMasize() == masize) {
+				return i;
+			}
 		}
+		return -1;
 	}
-	return -1;
-}
+//	@GetMapping("LaySoLuongGioHang")
+//	@ResponseBody
+//	public String LaySoLuongGioHang(HttpSession httpSession) {
+//		if(httpSession.getAttribute("giohang") != null) {
+//			List<GioHang> gioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
+//			return gioHangs.size() + "";
+//		}
+//		return "";
+//	}
+	
 }
