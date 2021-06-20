@@ -1,0 +1,22 @@
+
+.container_cart-table{
+	width: 100%;
+	border-collapse: collapse;
+}
+.container_cart-table, .container_cart-table td{
+	border-top: 1px solid var(--primary-color);
+  	text-align: center;
+}
+.container_cart-table__head{
+	font-size: 1.8rem;
+}
+.container_cart-table__body{
+	font-size: 1.4rem;
+}
+tr .container_cart-table__head-lastchild{
+	padding-right: 20%;
+    text-align: center;
+}
+tr .container_cart-table__body-3{
+	padding-left: 70px;
+}

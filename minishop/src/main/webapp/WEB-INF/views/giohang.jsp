@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <jsp:include page="header.jsp" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>HOME</title>
+	<title>Giỏ Hàng</title>
 </head>
 <body>
 
@@ -172,7 +172,12 @@
                     <div class="header__cart">
                         <div class="header__cart-wrap">
                             <i class="header__search-icon fas fa-shopping-cart"></i>
-                            <span class="header__cart-notice">3</span>
+                            <c:if test="${soluongspgiohang > 0}">
+                            	<span class="header__cart-notice">${soluongspgiohang }</span>
+                            </c:if>
+                            <c:if test="${soluongspgiohang <= 0 || soluongspgiohang == null}">
+                            	<span>${soluongspgiohang }</span>
+                            </c:if>
                             <!-- No cart: header__cart-list--no-cart -->
                             <div class="header__cart-list">
                                 <img src='<c:url value = "/resources/image/empty_cart.png" />' alt="img_no_cart" class="header__cart-no-cart-img">
@@ -241,7 +246,7 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <a href="giohang" class="header__car-view-cart btn btn--primary">Xem giỏ hàng</a>
+                                <a href="#" class="header__car-view-cart btn btn--primary">Xem giỏ hàng</a>
                             </div>
                         </div>
                     </div>
@@ -251,152 +256,33 @@
         <!-- end header -->
 
         <!-- start container -->
-        <div class="app__container">
-            <div class="grid">
-                <div class="grid__row app__content">
-                    <div class="grid__column-2">
-                        
-                        <nav class="category">
-                            <h3 class="category__heading">Danh mục</h3>
-
-                            <ul class="category-list">
-                                <li class="category-item category-item--active">
-                                    <a href="#" class="category-item__link">Giày thể thao</a>
-                                </li>
-                                <li class="category-item">
-                                    <a href="#" class="category-item__link">Giày Sneaker</a>
-                                </li>
-                                <li class="category-item">
-                                    <a href="#" class="category-item__link">Giày đế bằng</a>
-                                </li>
-                                <li class="category-item">
-                                    <a href="#" class="category-item__link">Giày cao gót</a>
-                                </li>
-                                <li class="category-item">
-                                    <a href="#" class="category-item__link">Giày đế xuồng</a>
-                                </li>
-                            </ul>
-                        </nav>
-
-                    </div>
-
-                    <div class="grid__column-10">
-                        <div class="home-filter">
-                            <span class="home-filter__label">Sắp xếp theo</span>
-                            <button class="btn home-filter__btn">Phổ biến</button>
-                            <button class="btn home-filter__btn btn--primary">Mới nhất</button>
-                            <button class="btn home-filter__btn">Bán chạy</button>
-
-                            <div class="select-input">
-                                <span class="select-input__label">Giá</span>
-                                <i class="select-input__icon fas fa-angle-down"></i>
-
-                                <!-- List options -->
-                                <ul class="select-input__list">
-                                    <li class="select-input__item">
-                                        <a href="" class="select-input__link">Giá: thấp đến cao</a>
-                                    </li>
-                                    <li class="select-input__item">
-                                        <a href="" class="select-input__link">Giá: cao đến thấp</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="home-filter__page">
-                                <span class="home-filter__page-num">
-                                    <span class="home-filter__page-current">1</span>/14
-                                </span>
-                                <div class="home-filter__page-control">
-                                    <a href="" class="home-filter__page-btn home-filter__page-btn--disabled">
-                                        <i class="home-filter__page-icon fas fa-angle-left"></i>
-                                    </a>
-                                    <a href="" class="home-filter__page-btn">
-                                        <i class="home-filter__page-icon fas fa-angle-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="home-product">
-                            <div class="grid__row">
-                                <!-- Product item -->
-                                <c:forEach var = "sanpham" items = "${listSanPhams }">
-                                 <div class="grid__column-2-4">
-                                    <a class="home-product-item" href="chitiet/${sanpham.getMasanpham() }">
-                                        <div class="home-product-item__img" style="background-image: url(./resources/image/sanpham/${sanpham.getHinhsanpham()});"></div>
-                                        <h4 class="home-product-item__name">${sanpham.getTensanpham() }</h4>
-                                        <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">500.000đ</span>
-                                            <span class="home-product-item__price-current">${sanpham.getGiatien() } VNĐ</span>
-                                        </div>
-                                        <div class="home-product-item__action">
-                                            <span class="home-product-item__like home-product-item__like--liked">
-                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
-                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
-                                            </span>
-                                            <div class="home-product-item__rating">
-                                                <i class="home-product-item__star--gold fas fa-star"></i>
-                                                <i class="home-product-item__star--gold fas fa-star"></i>
-                                                <i class="home-product-item__star--gold fas fa-star"></i>
-                                                <i class="home-product-item__star--gold fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                            <div class="home-product-item__sold">88 đã bán</div>
-                                        </div>
-                                        <div class="home-product-item__origin">
-                                            <span class="home-product-item__brand">Whoo</span>
-                                            <span class="home-product-item__origin-name">Nhật Bản</span>
-                                        </div>
-                                        <div class="home-product-item__favourite">
-                                            <i class="fas fa-check"></i>
-                                            <span>Yêu Thích</span>
-                                        </div>
-                                        <div class="home-product-item__sale-off">
-                                            <span class="home-product-item__sale-off-percent">43%</span>
-                                            <span class="home-product-item__sale-off-label">GIẢM</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                </c:forEach>
-                                <!-- End Product item -->
-                            </div>
-                        </div>
-                        <ul class="pagination home-product__pagination">
-                            <li class="pagination-item">
-                                <a href="#" class="pagination-item__link">
-                                    <i class="pagination-item__icon fas fa-angle-left"></i>
-                                </a>
-                            </li>
-                            <li class="pagination-item pagination-item--active">
-                                <a href="#" class="pagination-item__link">1</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="#" class="pagination-item__link">2</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="#" class="pagination-item__link">3</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="#" class="pagination-item__link">4</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="#" class="pagination-item__link">5</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="#" class="pagination-item__link">...</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="#" class="pagination-item__link">14</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="#" class="pagination-item__link">
-                                    <i class="pagination-item__icon fas fa-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="grid">
+		<div class="container">
+			<div class="container_cart">
+				<table  class="container_cart-table">
+				  <thead  class="container_cart-table__head">
+				    <tr>
+				      <th><h5>Tên sản phẩm</h5></th>
+				      <th><h5>Màu sản phẩm</h5></th>
+				      <th><h5>Size</h5></th>
+				      <th class="container_cart-table__head-lastchild" colspan="2"><h5>Số lượng</h5></th>
+				    </tr>
+				  </thead>
+				  <tbody  class="container_cart-table__body">
+				  <c:forEach var="value" items="${giohang }">
+				  	<tr>
+				      <td>${value.getTensp() }</td>
+				      <td class="mau" data-mamau="${value.getTenmau() }">${value.getTenmau() }</td>
+				      <td class="size" data-masize="${value.getMasize() }">${value.getTensize() }</td>
+				      <td class="soluong container_cart-table__body-3">${value.getSoluong() }</td>
+				      <td><button class="btn btn--primary btn-cart">Xóa</button></td>
+				    </tr>
+				  </c:forEach>
+				  </tbody>
+				</table>
+			</div>	
+		</div>
+		</div>
         <!-- end container -->
 
         <!-- start footer -->

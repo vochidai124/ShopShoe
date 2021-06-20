@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <jsp:include page="header.jsp" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>HOME</title>
+	<title>${sanPham.getTensanpham() }</title>
 </head>
 <body>
 
@@ -246,7 +246,7 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <a href="#" class="header__car-view-cart btn btn--primary">Xem giỏ hàng</a>
+                                <a href="/minishop/giohang" class="header__car-view-cart btn btn--primary">Xem giỏ hàng</a>
                             </div>
                         </div>
                     </div>
@@ -296,18 +296,27 @@
 						
 						<div class="container_product-right">
 							<div class="container_product-info">
-								<div class="container_product-table">
+								<div class="container_product-detail">
 									<h4 id="tensp" data-masp="${sanPham.getMasanpham() }">${sanPham.getTensanpham() }</h4>
 									<span id="giatien" data-value="${sanPham.getGiatien() }">${sanPham.getGiatien() } VNĐ</span>
-									<table><tbody>
-									<c:forEach var="chitietsanpham" items="${sanPham.getChitietsanpham() }">
-										<tr class="container_product-table-column">
-										<td class="mau" data-mamau="${chitietsanpham.getMausanpham().getMamau() }">${chitietsanpham.getMausanpham().getTenmau() }</td>
-										<td class="size" data-masize="${chitietsanpham.getSizesanpham().getMasize() }">${chitietsanpham.getSizesanpham().getSize() }</td>
-										<td class="soluong">${chitietsanpham.getSoluong() }</td>
-										<td><button class="btn btn--primary btn-cart">Giỏ Hàng</button></td></tr>	
-									</c:forEach>
-									</tbody></table>
+									<table class="container_product-table">
+										<thead class="container_product-table__head">
+											<tr>
+												<td><h5>Màu sản phẩm</h5></td>
+												<td><h5>Size</h5></td>
+												<td><h5>Số lượng</h5></td>
+											</tr>
+										</thead>
+										<tbody>
+										<c:forEach var="chitietsanpham" items="${sanPham.getChitietsanpham() }">
+											<tr class="container_product-table-column">
+											<td class="mau container_product-table__data" data-mamau="${chitietsanpham.getMausanpham().getMamau() }">${chitietsanpham.getMausanpham().getTenmau() }</td>
+											<td class="size container_product-table__data" data-masize="${chitietsanpham.getSizesanpham().getMasize() }">${chitietsanpham.getSizesanpham().getSize() }</td>
+											<td class="soluong container_product-table__data">${chitietsanpham.getSoluong() }</td>
+											<td class="container_product-table__data"><button class="btn btn--primary btn-cart">Giỏ Hàng</button></td></tr>	
+										</c:forEach>
+										</tbody>
+									</table>
 								</div>
 								<div class="container_product-decs">
 									<h5>Mô tả sản phẩm</h5>

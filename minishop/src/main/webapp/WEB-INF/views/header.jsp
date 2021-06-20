@@ -10,3 +10,4 @@
 <link rel="stylesheet" href='<c:url value="/resources/Styles/base.css"/>'/>
 <link rel="stylesheet" href='<c:url value="/resources/Styles/main.css"/>'/>
 <link rel="stylesheet" href='<c:url value="/resources/Styles/chitiet.css"/>'/>
+<link rel="stylesheet" href='<c:url value="/resources/Styles/giohang.css"/>'/>
