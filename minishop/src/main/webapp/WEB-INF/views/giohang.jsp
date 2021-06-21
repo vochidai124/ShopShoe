@@ -257,15 +257,17 @@
 
         <!-- start container -->
         <div class="grid">
-		<div class="container">
+		<div class="container_thispage">
 			<div class="container_cart">
+				<h3>Chi Tiết Sản Phẩm Trong Giỏ Hàng</h3>
 				<table  class="container_cart-table">
 				  <thead  class="container_cart-table__head">
 				    <tr>
 				      <th><h5>Tên sản phẩm</h5></th>
 				      <th><h5>Màu sản phẩm</h5></th>
 				      <th><h5>Size</h5></th>
-				      <th class="container_cart-table__head-lastchild" colspan="2"><h5>Số lượng</h5></th>
+				      <th><h5>Số lượng</h5></th>
+				      <th><h5>Giá tiền</h5></th>
 				    </tr>
 				  </thead>
 				  <tbody  class="container_cart-table__body">
@@ -274,13 +276,36 @@
 				      <td>${value.getTensp() }</td>
 				      <td class="mau" data-mamau="${value.getTenmau() }">${value.getTenmau() }</td>
 				      <td class="size" data-masize="${value.getMasize() }">${value.getTensize() }</td>
-				      <td class="soluong container_cart-table__body-3">${value.getSoluong() }</td>
-				      <td><button class="btn btn--primary btn-cart">Xóa</button></td>
+				      <td class="soluong"><input id="soluong-giohang" type="number" value="${value.getSoluong() }"/></td>
+				      <td/>${value.getGiatien() }</td>
+				      <td><button class="btn btn--primary btn-table-cart">Xóa</button></td>
 				    </tr>
 				  </c:forEach>
 				  </tbody>
 				</table>
-			</div>	
+				<h4>Tổng Tiền : <span>1.500.000 VNĐ</span></h4>
+			</div>
+			<div class="container_group">
+				<h3>Thông Tin Người Nhận/ Mua</h3>
+				<form class="container_group-form" action="">
+					<label for="tennguoinhan">Tên Người Nhận/ Mua</label>
+					<input class="container_group-form-control" id="tennguoimua"/>
+					<label for="dienthoailienlac">Điện thoại liên lạc</label>
+					<input class="container_group-form-control" id="tennguoimua"/>
+					<div class="container_group-form-radio">
+						<p>Please select your gender:</p>
+						<input type="radio" name="rdhinhthuc">
+						<label for="rdhinhthuc">Giao hàng tận nơi</label><br>
+						<input type="radio" name="rdhinhthuc">
+						<label for="rdhinhthuc">Nhận hàng tại cửa hàng</label><br>
+					</div>
+					<label for="diachi">Địa chỉ nhận hàng</label>
+					<input class="container_group-form-control" id="tennguoimua"/>
+					<label for="ghichu">Ghi chú :</label>
+					<textarea rows="5" class="container_group-form-control" id="ghichu"></textarea>
+					<input type="submit" class="btn btn--primary btn-order" value="Đặt hàng" />
+				</form>
+			</div>
 		</div>
 		</div>
         <!-- end container -->

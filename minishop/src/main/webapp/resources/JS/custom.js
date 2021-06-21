@@ -22,7 +22,6 @@ $(document).ready(function() {
 		}
 		});
 	});
-});
 	
 	$("#dangnhap").click(function(){
 		$(this).addClass("actived");
@@ -64,7 +63,7 @@ $(document).ready(function() {
 				$(".header__cart-wrap").find("span").addClass("header__cart-notice");
 				$(".header__cart-wrap").find("span").html(value);
 			}
-		})/*.done(function(){
+		});/*.done(function(){
 			$.ajax({
 			url: "/minishop/api/LaySoLuongGioHang",
 			type: "GET",
@@ -75,5 +74,8 @@ $(document).ready(function() {
 			
 		})
 		});*/
-		
+		});
+	$(".soluong").click(function(){
+		alert("hello");
+	})
 });
