@@ -276,14 +276,14 @@
 				      <td>${value.getTensp() }</td>
 				      <td class="mau" data-mamau="${value.getTenmau() }">${value.getTenmau() }</td>
 				      <td class="size" data-masize="${value.getMasize() }">${value.getTensize() }</td>
-				      <td class="soluong"><input id="soluong-giohang" type="number" value="${value.getSoluong() }"/></td>
-				      <td/>${value.getGiatien() }</td>
+				      <td class="soluong" data-value="${value.getSoluong() }"><input class="soluong-giohang" min="1" value="1" type="number" /></td>
+				      <td class="giatien" data-value="${value.getGiatien() }">${value.getGiatien() }</td>
 				      <td><button class="btn btn--primary btn-table-cart">Xóa</button></td>
 				    </tr>
 				  </c:forEach>
 				  </tbody>
 				</table>
-				<h4>Tổng Tiền : <span>1.500.000 VNĐ</span></h4>
+				<h4>Tổng Tiền : <span id="tongtien"></span></h4>
 			</div>
 			<div class="container_group">
 				<h3>Thông Tin Người Nhận/ Mua</h3>

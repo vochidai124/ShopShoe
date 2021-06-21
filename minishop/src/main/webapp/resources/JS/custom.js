@@ -74,8 +74,28 @@ $(document).ready(function() {
 			
 		})
 		});*/
-		});
-	$(".soluong").click(function(){
-		alert("hello");
+	});
+	function formatCash(str) {
+ 		return str.split('').reverse().reduce((prev, next, index) => {
+ 			return ((index % 3) ? next : (next + '.')) + prev
+ 		})
+	}
+	
+	GanTongTienGioHang();
+	function GanTongTienGioHang(){
+		var tongtiensp = 0;
+		$(".giatien").each(function(){
+			var giatien = $(this).text();
+			tongtiensp = tongtiensp + parseFloat(giatien);
+			$("#tongtien").html(tongtiensp.toFixed(3));
+		})
+	}
+	
+	$(".soluong-giohang").change(function(){
+		var soluong = $(this).val();
+		var giatien = $(this).closest("tr").find(".giatien").attr("data-value");
+		var tongtien = soluong * parseFloat(giatien);
+		$(this).closest("tr").find(".giatien").html(tongtien.toFixed(3));
+		GanTongTienGioHang();
 	})
 });
