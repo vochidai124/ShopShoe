@@ -80,8 +80,10 @@ $(document).ready(function() {
 	function GanTongTienGioHang(){
 		var tongtiensp = 0;
 		$(".giatien").each(function(){
-			var giatien = $(this).text();
+			var giatien = $(this).closest("tr").find(".giatien").attr("data-value");
+			var soluong = $(this).closest("tr").find(".soluong-giohang").val();
 			giatien = parseFloat(giatien);
+			soluong = parseFloat(soluong);
 			
 			if(giatien >=1 && giatien <=10){
 				giatien = giatien*1000000;
@@ -89,8 +91,10 @@ $(document).ready(function() {
 			if(giatien >=11 && giatien <=999){
 				giatien = giatien*1000;
 			}
-			console.log(giatien);
-			tongtiensp = tongtiensp + giatien;
+			
+			var tongtien = giatien*soluong;
+			$(this).closest("tr").find(".giatien").html(new Intl.NumberFormat().format(tongtien));
+			tongtiensp = tongtiensp + tongtien;
 			$("#tongtien").html(new Intl.NumberFormat().format(tongtiensp));		
 		})
 	}
@@ -101,25 +105,28 @@ $(document).ready(function() {
 		var tongtien = soluong * giatien;
 		$(this).closest("tr").find(".giatien").html(new Intl.NumberFormat().format(tongtien));
 		GanTongTienGioHang();
-		/*
+		
 		var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");
 		var masize = $(this).closest("tr").find(".size").attr("data-masize");
 		var masp = $(this).closest("tr").find(".tensp").attr("data-masp");
-		
+		soluong = parseInt(soluong);
+		mamau = parseInt(mamau);
+		masize = parseInt(masize);
+		masp = parseInt(masp);
 		$.ajax({
 			url: "/minishop/api/CapNhatGioHang",
 			type: "GET",
 			data: {
 				masp: masp,
 				masize: masize,
-				soluong: soluong,
-				mamau: mamau
+				mamau: mamau,
+				soluong: soluong
 			},
 			success: function(value) {
 				
 			}
 		});
-		*/
+		
 	})
 
 });

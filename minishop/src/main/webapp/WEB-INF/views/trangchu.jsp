@@ -325,7 +325,7 @@
                                         <div class="home-product-item__img" style="background-image: url(./resources/image/sanpham/${sanpham.getHinhsanpham()});"></div>
                                         <h4 class="home-product-item__name">${sanpham.getTensanpham() }</h4>
                                         <div class="home-product-item__price">
-                                            <span class="home-product-item__price-old">500.000đ</span>
+                                            <span class="home-product-item__price-old">1000.000đ</span>
                                             <span class="home-product-item__price-current">${sanpham.getGiatien() } VNĐ</span>
                                         </div>
                                         <div class="home-product-item__action">
@@ -351,7 +351,7 @@
                                             <span>Yêu Thích</span>
                                         </div>
                                         <div class="home-product-item__sale-off">
-                                            <span class="home-product-item__sale-off-percent">43%</span>
+                                            <span class="home-product-item__sale-off-percent">30%</span>
                                             <span class="home-product-item__sale-off-label">GIẢM</span>
                                         </div>
                                     </a>
