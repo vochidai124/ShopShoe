@@ -98,6 +98,28 @@ $(document).ready(function() {
 			$("#tongtien").html(new Intl.NumberFormat().format(tongtiensp));		
 		})
 	}
+	
+	$(".delete-product").click(function(){
+		var self = $(this);
+		var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");
+		var masize = $(this).closest("tr").find(".size").attr("data-masize");
+		var masp = $(this).closest("tr").find(".tensp").attr("data-masp");
+		
+		$.ajax({
+			url: "/minishop/api/XoaGioHang",
+			type: "GET",
+			data: {
+				masp: masp,
+				masize: masize,
+				mamau: mamau
+			},
+			success: function(value) {
+				self.closest("tr").remove();
+				GanTongTienGioHang();
+			}
+		});
+	})
+	
 	$(".soluong-giohang").change(function(){
 		var soluong = $(this).val();
 		var giatien = $(this).closest("tr").find(".giatien").attr("data-value");
@@ -109,6 +131,7 @@ $(document).ready(function() {
 		var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");
 		var masize = $(this).closest("tr").find(".size").attr("data-masize");
 		var masp = $(this).closest("tr").find(".tensp").attr("data-masp");
+		
 		soluong = parseInt(soluong);
 		mamau = parseInt(mamau);
 		masize = parseInt(masize);

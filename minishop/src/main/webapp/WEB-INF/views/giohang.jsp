@@ -278,7 +278,7 @@
 				      <td class="size" data-masize="${value.getMasize() }">${value.getTensize() }</td>
 				      <td class="soluong"><input class="soluong-giohang" min="1" value="${value.getSoluong() }" type="number" /></td>
 				      <td class="giatien" data-value="${value.getGiatien() }">${value.getGiatien() }</td>
-				      <td><button class="btn btn--primary btn-table-cart">Xóa</button></td>
+				      <td><button class="delete-product btn btn--primary btn-table-cart">Xóa</button></td>
 				    </tr>
 				  </c:forEach>
 				  </tbody>
