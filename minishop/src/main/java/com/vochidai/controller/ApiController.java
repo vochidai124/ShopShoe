@@ -37,6 +37,16 @@ public class ApiController {
 		return ""+kiemtra;
 	}
 	
+	@GetMapping("CapNhatGioHang")
+	@ResponseBody
+	public void CapNhatGioHang(HttpSession httpSession, @RequestParam int soluong, @RequestParam int masp, @RequestParam int mamau, @RequestParam int masize) {
+		if(null != httpSession.getAttribute("giohang")) {
+			List<GioHang> listGioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
+			int vitri = KiemTraSanPhamDaTonTaiGioHang(listGioHangs, httpSession, masp, masize, mamau);
+			listGioHangs.get(vitri).setSoluong(soluong);
+		}
+	}
+	
 	@GetMapping("ThemGioHang")
 	@ResponseBody
 	public String ThemGioHang(@RequestParam int masp, @RequestParam int masize, @RequestParam int mamau,

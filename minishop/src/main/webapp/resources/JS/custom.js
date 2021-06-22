@@ -75,27 +75,51 @@ $(document).ready(function() {
 		})
 		});*/
 	});
-	function formatCash(str) {
- 		return str.split('').reverse().reduce((prev, next, index) => {
- 			return ((index % 3) ? next : (next + '.')) + prev
- 		})
-	}
 	
 	GanTongTienGioHang();
 	function GanTongTienGioHang(){
 		var tongtiensp = 0;
 		$(".giatien").each(function(){
 			var giatien = $(this).text();
-			tongtiensp = tongtiensp + parseFloat(giatien);
-			$("#tongtien").html(tongtiensp.toFixed(3));
+			giatien = parseFloat(giatien);
+			
+			if(giatien >=1 && giatien <=10){
+				giatien = giatien*1000000;
+			}
+			if(giatien >=11 && giatien <=999){
+				giatien = giatien*1000;
+			}
+			console.log(giatien);
+			tongtiensp = tongtiensp + giatien;
+			$("#tongtien").html(new Intl.NumberFormat().format(tongtiensp));		
 		})
 	}
-	
 	$(".soluong-giohang").change(function(){
 		var soluong = $(this).val();
 		var giatien = $(this).closest("tr").find(".giatien").attr("data-value");
-		var tongtien = soluong * parseFloat(giatien);
-		$(this).closest("tr").find(".giatien").html(tongtien.toFixed(3));
+		giatien = parseFloat(giatien)*1000;
+		var tongtien = soluong * giatien;
+		$(this).closest("tr").find(".giatien").html(new Intl.NumberFormat().format(tongtien));
 		GanTongTienGioHang();
+		/*
+		var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");
+		var masize = $(this).closest("tr").find(".size").attr("data-masize");
+		var masp = $(this).closest("tr").find(".tensp").attr("data-masp");
+		
+		$.ajax({
+			url: "/minishop/api/CapNhatGioHang",
+			type: "GET",
+			data: {
+				masp: masp,
+				masize: masize,
+				soluong: soluong,
+				mamau: mamau
+			},
+			success: function(value) {
+				
+			}
+		});
+		*/
 	})
+
 });

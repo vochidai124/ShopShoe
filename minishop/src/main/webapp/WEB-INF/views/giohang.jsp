@@ -273,10 +273,10 @@
 				  <tbody  class="container_cart-table__body">
 				  <c:forEach var="value" items="${giohang }">
 				  	<tr>
-				      <td>${value.getTensp() }</td>
+				      <td class="tensp" data-masp="${value.getTensp() }">${value.getTensp() }</td>
 				      <td class="mau" data-mamau="${value.getTenmau() }">${value.getTenmau() }</td>
 				      <td class="size" data-masize="${value.getMasize() }">${value.getTensize() }</td>
-				      <td class="soluong" data-value="${value.getSoluong() }"><input class="soluong-giohang" min="1" value="1" type="number" /></td>
+				      <td class="soluong"><input class="soluong-giohang" min="1" value="${value.getSoluong() }" type="number" /></td>
 				      <td class="giatien" data-value="${value.getGiatien() }">${value.getGiatien() }</td>
 				      <td><button class="btn btn--primary btn-table-cart">Xóa</button></td>
 				    </tr>
