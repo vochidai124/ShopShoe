@@ -37,6 +37,7 @@ $(document).ready(function() {
 	});
 	
 	$(".btn-cart").click(function(){
+		var machitiet = $(this).attr("data-machitiet");
 		var mamau = $(this).closest("tr").find(".mau").attr("data-mamau");
 		var tenmau = $(this).closest("tr").find(".mau").text();
 		var masize = $(this).closest("tr").find(".size").attr("data-masize");
@@ -57,7 +58,8 @@ $(document).ready(function() {
 				tensp: tensp,
 				giatien: giatien,
 				tenmau: tenmau,
-				tensize: tensize
+				tensize: tensize,
+				machitiet: machitiet
 			},
 			success: function(value) {
 				$(".header__cart-wrap").find("span").addClass("header__cart-notice");

@@ -16,6 +16,7 @@ public class ChiTietSanPham {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int machitietsanpham;
+	
 	int soluong;
 	String ngaynhap;
 	

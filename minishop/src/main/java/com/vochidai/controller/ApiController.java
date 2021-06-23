@@ -61,7 +61,7 @@ public class ApiController {
 	@ResponseBody
 	public String ThemGioHang(@RequestParam int masp, @RequestParam int masize, @RequestParam int mamau,
 			@RequestParam String tensp, @RequestParam String giatien, @RequestParam String tenmau,
-			@RequestParam String tensize, @RequestParam int soluong, HttpSession httpSession) {
+			@RequestParam String tensize, @RequestParam int soluong, @RequestParam int machitiet, HttpSession httpSession) {
 		if(httpSession.getAttribute("giohang") == null) {
 		GioHang gioHang = new GioHang();
 		gioHang.setMasp(masp);
@@ -72,6 +72,7 @@ public class ApiController {
 		gioHang.setTenmau(tenmau);
 		gioHang.setGiatien(giatien);
 		gioHang.setSoluong(1);
+		gioHang.setMachitiet(machitiet);
 		
 		gioHangs.add(gioHang);
 		httpSession.setAttribute("giohang", gioHangs);
@@ -91,6 +92,7 @@ public class ApiController {
 			gioHang.setTenmau(tenmau);
 			gioHang.setGiatien(giatien);
 			gioHang.setSoluong(1);
+			gioHang.setMachitiet(machitiet);
 			
 			listGioHangs.add(gioHang);
 			

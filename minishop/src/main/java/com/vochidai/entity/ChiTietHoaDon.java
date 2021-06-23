@@ -13,6 +13,7 @@ public class ChiTietHoaDon {
 	
 	int soluong;
 	String giatien;
+	
 	public ChiTietHoaDonid getChiTietHoaDonid() {
 		return chiTietHoaDonid;
 	}

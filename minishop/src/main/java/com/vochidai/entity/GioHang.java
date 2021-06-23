@@ -1,7 +1,7 @@
 package com.vochidai.entity;
 
 public class GioHang {
-	
+	int machitiet;
 	int masp;
 	int mamau;
 	int masize;
@@ -11,6 +11,12 @@ public class GioHang {
 	String tenmau;
 	String tensize;
 	
+	public int getMachitiet() {
+		return machitiet;
+	}
+	public void setMachitiet(int machitiet) {
+		this.machitiet = machitiet;
+	}
 	public String getTenmau() {
 		return tenmau;
 	}

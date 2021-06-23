@@ -313,7 +313,7 @@
 											<td class="mau container_product-table__data" data-mamau="${chitietsanpham.getMausanpham().getMamau() }">${chitietsanpham.getMausanpham().getTenmau() }</td>
 											<td class="size container_product-table__data" data-masize="${chitietsanpham.getSizesanpham().getMasize() }">${chitietsanpham.getSizesanpham().getSize() }</td>
 											<td class="soluong container_product-table__data">${chitietsanpham.getSoluong() }</td>
-											<td class="container_product-table__data"><button class="btn btn--primary btn-cart">Giỏ Hàng</button></td></tr>	
+											<td class="container_product-table__data"><button data-machitiet="${chitietsanpham.getMachitietsanpham()}" class="btn btn--primary btn-cart">Giỏ Hàng</button></td></tr>	
 										</c:forEach>
 										</tbody>
 									</table>

@@ -272,7 +272,7 @@
 				  </thead>
 				  <tbody  class="container_cart-table__body">
 				  <c:forEach var="value" items="${giohang }">
-				  	<tr>
+				  	<tr data-machitiet = "${value.getMachitiet() }">
 				      <td class="tensp" data-masp="${value.getMasp() }">${value.getTensp() }</td>
 				      <td class="mau" data-mamau="${value.getMamau() }">${value.getTenmau() }</td>
 				      <td class="size" data-masize="${value.getMasize() }">${value.getTensize() }</td>
@@ -287,22 +287,22 @@
 			</div>
 			<div class="container_group">
 				<h3>Thông Tin Người Nhận/ Mua</h3>
-				<form class="container_group-form" action="">
-					<label for="tennguoinhan">Tên Người Nhận/ Mua</label>
-					<input class="container_group-form-control" id="tennguoimua"/>
-					<label for="dienthoailienlac">Điện thoại liên lạc</label>
-					<input class="container_group-form-control" id="tennguoimua"/>
+				<form class="container_group-form" action="" method="post">
+					<label for="tenkhachhang">Tên Người Nhận/ Mua</label>
+					<input class="container_group-form-control" id="tenkhachhang" name="tenkhachhang"/>
+					<label for="sodt">Điện thoại liên lạc</label>
+					<input class="container_group-form-control" id="sodt" name="sodt"/>
 					<div class="container_group-form-radio">
-						<p>Please select your gender:</p>
-						<input type="radio" name="rdhinhthuc">
-						<label for="rdhinhthuc">Giao hàng tận nơi</label><br>
-						<input type="radio" name="rdhinhthuc">
-						<label for="rdhinhthuc">Nhận hàng tại cửa hàng</label><br>
+						<p>Chọn hình thức giao hàng :</p>
+						<input checked="checked" type="radio" name="hinhthucgiaohang" value="Giao hàng tận nơi</">
+						<label for="hinhthucgiaohang">Giao hàng tận nơi</label><br>
+						<input type="radio" name="hinhthucgiaohang" value="Nhận hàng tại cửa hàng">
+						<label for="hinhthucgiaohang">Nhận hàng tại cửa hàng</label><br>
 					</div>
-					<label for="diachi">Địa chỉ nhận hàng</label>
-					<input class="container_group-form-control" id="tennguoimua"/>
+					<label for="diachigiaohang">Địa chỉ nhận hàng</label>
+					<input class="container_group-form-control" id="diachigiaohang" name="diachigiaohang"/>
 					<label for="ghichu">Ghi chú :</label>
-					<textarea rows="5" class="container_group-form-control" id="ghichu"></textarea>
+					<textarea rows="5" class="container_group-form-control" id="ghichu" name="ghichu"></textarea>
 					<input type="submit" class="btn btn--primary btn-order" value="Đặt hàng" />
 				</form>
 			</div>

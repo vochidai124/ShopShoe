@@ -9,6 +9,7 @@ public class ChiTietHoaDonid implements Serializable{
 	
 	int mahoadon;
 	int machitietsanpham;
+	
 	public int getMahoadon() {
 		return mahoadon;
 	}
