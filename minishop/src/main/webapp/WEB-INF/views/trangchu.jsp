@@ -258,23 +258,10 @@
                         
                         <nav class="category">
                             <h3 class="category__heading">Danh mục</h3>
-
                             <ul class="category-list">
-                                <li class="category-item category-item--active">
-                                    <a href="#" class="category-item__link">Giày thể thao</a>
-                                </li>
-                                <li class="category-item">
-                                    <a href="#" class="category-item__link">Giày Sneaker</a>
-                                </li>
-                                <li class="category-item">
-                                    <a href="#" class="category-item__link">Giày đế bằng</a>
-                                </li>
-                                <li class="category-item">
-                                    <a href="#" class="category-item__link">Giày cao gót</a>
-                                </li>
-                                <li class="category-item">
-                                    <a href="#" class="category-item__link">Giày đế xuồng</a>
-                                </li>
+                            	<c:forEach var="danhmuc" items="${danhmuc }">
+									<li class="category-item"><a href="sanpham/${danhmuc.getMadanhmuc() }/${danhmuc.getTendanhmuc() }" class="category-item__link">${danhmuc.getTendanhmuc() }</a></li>
+								</c:forEach>
                             </ul>
                         </nav>
 

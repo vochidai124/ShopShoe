@@ -24,6 +24,7 @@ import com.vochidai.service.SanPhamService;
 public class ChiTietController {
 	@Autowired
 	SanPhamService sanPhamService;
+	
 	@Autowired
 	DanhMucService danhMucService;
 	

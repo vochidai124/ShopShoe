@@ -787,6 +787,12 @@
 .category-item__link:hover{
     color: var(--primary-color);
 }
+.container_heading-item-category{
+	color: var(--primary-color);
+}
+.home-page-product{
+	flex: 1;
+}
 /* Home sort + filter */
 .home-filter{
     padding: 12px 12px;

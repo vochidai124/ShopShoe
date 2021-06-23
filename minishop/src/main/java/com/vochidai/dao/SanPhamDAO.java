@@ -36,6 +36,14 @@ public class SanPhamDAO implements SanPhamImp{
 		SanPham sanPham = (SanPham) session.createQuery(sql).getSingleResult();
 		return sanPham;
 		
-		}
+	}
+	
+	@Transactional
+	public List<SanPham> LayDanhSachSanPhamTheoMaDanhMuc(int madanhmuc) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "from SanPham sp where sp.danhmucsanpham.madanhmuc = " + madanhmuc;
+		List<SanPham> listSanPhams = (List<SanPham>) session.createQuery(sql).getResultList();
+		return listSanPhams;
+	}
 
 }

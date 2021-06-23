@@ -12,7 +12,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.vochidai.entity.DanhMucSanPham;
 import com.vochidai.entity.SanPham;
+import com.vochidai.service.DanhMucService;
 import com.vochidai.service.NhanVienService;
 import com.vochidai.service.SanPhamService;
 
@@ -23,9 +25,15 @@ public class TrangChuController{
 	@Autowired
 	SanPhamService sanPhamService;
 	
+	@Autowired
+	DanhMucService danhMucService;
+	
 	@GetMapping
 	@Transactional
 	public String Default(ModelMap modelMap,HttpSession httpSession) {
+		
+		List<DanhMucSanPham> danhMucSanPhams = danhMucService.LayDanhMuc();
+		
 		if(httpSession.getAttribute("email")!=null) {
 			String temp=(String) httpSession.getAttribute("email");
 			String chucaidau=temp.substring(0,1);
@@ -34,6 +42,7 @@ public class TrangChuController{
 		
 		List<SanPham> listSanPhams = sanPhamService.LayDanhSachSanPham(0);
 		modelMap.addAttribute("listSanPhams", listSanPhams);
+		modelMap.addAttribute("danhmuc", danhMucSanPhams);
 		
 		return "trangchu";
 	}

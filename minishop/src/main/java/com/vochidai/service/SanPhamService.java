@@ -25,4 +25,9 @@ public class SanPhamService implements SanPhamImp{
 		return sanPhamDAO.LayDanhSachChiTietSanPhamTheoMa(masanpham);
 	}
 
+	public List<SanPham> LayDanhSachSanPhamTheoMaDanhMuc(int madanhmuc) {
+		
+		return sanPhamDAO.LayDanhSachSanPhamTheoMaDanhMuc(madanhmuc);
+	}
+
 }

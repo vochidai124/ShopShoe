@@ -9,4 +9,6 @@ public interface SanPhamImp {
 	
 	SanPham LayDanhSachChiTietSanPhamTheoMa(int masanpham);
 	
+	List<SanPham> LayDanhSachSanPhamTheoMaDanhMuc(int madanhmuc);
+	
 }

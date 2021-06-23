@@ -269,8 +269,8 @@
 							Giày Dép Nam
 						</li>
 						<li><i class="container_heading-item fas fa-angle-right"></i></li>
-						<li class="container_heading-item">
-							Giày thể thao/ Sneakers
+						<li class="container_heading-item-category container_heading-item">
+							${tendanhmuc }
 						</li>
 						<li><i class="container_heading-item fas fa-angle-right"></i></li>
 						<li class="container_heading-item">
@@ -284,51 +284,56 @@
 					<div class="container_product">
 						<div class="container_product-category">
 							<h4 class="container_product-category__heading category__heading">Danh Mục</h4>
-							 <ul class="category-list">
+							<ul class="category-list">
                             	<c:forEach var="danhmuc" items="${danhmuc }">
 									<li class="category-item"><a href='<c:url value = "/sanpham/${danhmuc.getMadanhmuc() }/${danhmuc.getTendanhmuc() }" />' class="category-item__link">${danhmuc.getTendanhmuc() }</a></li>
 								</c:forEach>
                             </ul>
 						</div>
-						<div class="container_product-left">
-							<a href='<c:url value = "/resources/image/sanpham/${sanPham.getHinhsanpham() }" />'><img class="container_product-left-img" alt="#" src='<c:url value = "/resources/image/sanpham/${sanPham.getHinhsanpham() }" />'></a>
-						</div>
-						
-						<div class="container_product-right">
-							<div class="container_product-info">
-								<div class="container_product-detail">
-									<h4 id="tensp" data-masp="${sanPham.getMasanpham() }">${sanPham.getTensanpham() }</h4>
-									<span id="giatien" data-value="${sanPham.getGiatien() }">${sanPham.getGiatien() } VNĐ</span>
-									<table class="container_product-table">
-										<thead class="container_product-table__head">
-											<tr>
-												<td><h5>Màu sản phẩm</h5></td>
-												<td><h5>Size</h5></td>
-												<td><h5>Số lượng</h5></td>
-											</tr>
-										</thead>
-										<tbody>
-										<c:forEach var="chitietsanpham" items="${sanPham.getChitietsanpham() }">
-											<tr class="container_product-table-column">
-											<td class="mau container_product-table__data" data-mamau="${chitietsanpham.getMausanpham().getMamau() }">${chitietsanpham.getMausanpham().getTenmau() }</td>
-											<td class="size container_product-table__data" data-masize="${chitietsanpham.getSizesanpham().getMasize() }">${chitietsanpham.getSizesanpham().getSize() }</td>
-											<td class="soluong container_product-table__data">${chitietsanpham.getSoluong() }</td>
-											<td class="container_product-table__data"><button data-machitiet="${chitietsanpham.getMachitietsanpham()}" class="btn btn--primary btn-cart">Giỏ Hàng</button></td></tr>	
-										</c:forEach>
-										</tbody>
-									</table>
-								</div>
-								<div class="container_product-decs">
-									<h5>Mô tả sản phẩm</h5>
-										<p>${sanPham.getMota() }</p>
-								</div>
-							</div>
-							<div class="container_product-right-bottom">
-								<a href="#"><img class="container_product-right-img" alt="#" src='<c:url value = "/resources/image/sanpham/sanpham_3.jpg" />'></a>
-								<a href="#"><img class="container_product-right-img" alt="#" src='<c:url value = "/resources/image/sanpham/sanpham_5.jpg" />'></a>
-								<a href="#"><img class="container_product-right-img" alt="#" src='<c:url value = "/resources/image/sanpham/sanpham_3.jpg" />'></a>
-							</div>
-						</div>
+						<div class="home-product home-page-product">
+                            <div class="grid__row">
+                                <!-- Product item -->
+                                <c:forEach var = "sanpham" items = "${listSanPhams }">
+                                 <div class="grid__column-2-4">
+                                    <a class="home-product-item" href="/minishop/resources/image/sanpham/${sanpham.getHinhsanpham()}">
+                                        <div class="home-product-item__img" style="background-image: url(/minishop/resources/image/sanpham/${sanpham.getHinhsanpham()});"></div>
+                                        <h4 class="home-product-item__name">${sanpham.getTensanpham() }</h4>
+                                        <div class="home-product-item__price">
+                                            <span class="home-product-item__price-old">1000.000đ</span>
+                                            <span class="home-product-item__price-current">${sanpham.getGiatien() } VNĐ</span>
+                                        </div>
+                                        <div class="home-product-item__action">
+                                            <span class="home-product-item__like home-product-item__like--liked">
+                                                <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                                                <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                            </span>
+                                            <div class="home-product-item__rating">
+                                                <i class="home-product-item__star--gold fas fa-star"></i>
+                                                <i class="home-product-item__star--gold fas fa-star"></i>
+                                                <i class="home-product-item__star--gold fas fa-star"></i>
+                                                <i class="home-product-item__star--gold fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="home-product-item__sold">88 đã bán</div>
+                                        </div>
+                                        <div class="home-product-item__origin">
+                                            <span class="home-product-item__brand">Whoo</span>
+                                            <span class="home-product-item__origin-name">Nhật Bản</span>
+                                        </div>
+                                        <div class="home-product-item__favourite">
+                                            <i class="fas fa-check"></i>
+                                            <span>Yêu Thích</span>
+                                        </div>
+                                        <div class="home-product-item__sale-off">
+                                            <span class="home-product-item__sale-off-percent">30%</span>
+                                            <span class="home-product-item__sale-off-label">GIẢM</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                </c:forEach>
+                                <!-- End Product item -->
+                            </div>
+                        </div>
 					</div>
 				</div>
 		
