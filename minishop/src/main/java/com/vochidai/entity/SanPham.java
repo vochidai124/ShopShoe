@@ -36,7 +36,7 @@ public class SanPham {
 	Set<ChiTietSanPham> chitietsanpham;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "chitietsanpham",
+	@JoinTable(name = "chitietkhuyenmai",
 	joinColumns = {@JoinColumn(name = "masanpham", referencedColumnName = "masanpham")},
 	inverseJoinColumns = {@JoinColumn(name = "makhuyenmai", referencedColumnName = "makhuyenmai")})
 	Set<KhuyenMai> danhsachkhuyenmai;

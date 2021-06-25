@@ -138,7 +138,7 @@ public class ApiController {
 		List<SanPham> listSanPhams = sanPhamService.LayDanhSachSanPham(spbatdau);
 		for (SanPham sanPham : listSanPhams) {
 			html += "<tr>";
-			html += "<td><div class='form-check'><label><input class='checkboxsanpham' type='checkbox' value=''></label></div></td>";
+			html += "<td><div class='form-check'><label><input class='checkboxsanpham' type='checkbox' value='"+sanPham.getMasanpham()+"'></label></div></td>";
 			html += "<td class='tensp' data-masp='"+sanPham.getMasanpham()+"'>"+sanPham.getTensanpham() +"</td>";
 			html += "<td class='giatien'>"+sanPham.getGiatien() +"</td>";
 			html += "<td class='danhcho'>"+sanPham.getDanhcho() +"</td>";
@@ -146,6 +146,14 @@ public class ApiController {
 		}
 		
 		return html;
+	}
+	@GetMapping("XoaSanPham")
+	@ResponseBody
+	public String XoaSanPhamTheoMaSanPham(@RequestParam int masanpham) {
+		sanPhamService.XoaSanPhamTheoMaSanPham(masanpham);
+		
+		return "true";
+		
 	}
 	
 }

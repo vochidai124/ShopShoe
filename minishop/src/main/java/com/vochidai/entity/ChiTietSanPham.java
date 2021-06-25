@@ -20,15 +20,15 @@ public class ChiTietSanPham {
 	int soluong;
 	String ngaynhap;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne()
 	@JoinColumn(name = "masanpham")
 	SanPham sanpham;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne()
 	@JoinColumn(name = "masize")
 	SizeSanPham sizesanpham;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne()
 	@JoinColumn(name = "mamau")
 	MauSanPham mausanpham;
 	

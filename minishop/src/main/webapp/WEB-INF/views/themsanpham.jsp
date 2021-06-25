@@ -50,7 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<tr>
 					<td>
 						<div class="form-check">
-						  <label><input type="checkbox" value="" id=""></label>
+						  <label><input type="checkbox" value="" id="checkall"></label>
 						</div>
 					</td>
 					<td>Tên sản phẩm</td>

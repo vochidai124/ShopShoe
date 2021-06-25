@@ -172,19 +172,36 @@ $(document).ready(function() {
 			}
 		});
 	})
-	$("body").on("click",".page-item",function(){
-		
-		
+	
+	$("#checkall").change(function(){
+		if(this.checked){
+			$("#table-sanpham input").each(function(){
+			$(this).attr("checked",true);
+		})
+		}else{
+			$("#table-sanpham input").each(function(){
+			$(this).attr("checked",false);
+			})
+		}
+	})
+	
+	$("#xoa-sanpham").click(function(){
+		$("#table-sanpham > tbody input:checked").each(function(){
+			var masanpham = $(this).val();
+			var This = $(this);
+			This.closest("tr").remove();
 		$.ajax({
-			url: "/minishop/api/LaySanPhamLimit",
+			url: "/minishop/api/XoaSanPham",
 			type: "GET",
 			data: {
-				
+				masanpham: masanpham
 			},
 			success: function(value) {
-			
+				This.closest("tr").remove();
 			}
-		});
+		})
+		
+		})
 	})
 	
 });
