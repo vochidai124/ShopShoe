@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.vochidai.entity.GioHang;
+import com.vochidai.entity.SanPham;
 import com.vochidai.service.NhanVienService;
+import com.vochidai.service.SanPhamService;
 
 @Controller
 @RequestMapping("api/")
@@ -24,6 +26,9 @@ import com.vochidai.service.NhanVienService;
 public class ApiController {
 	@Autowired
 	NhanVienService nhanVienService;
+	
+	@Autowired
+	SanPhamService sanPhamService;
 	
 	List<GioHang> gioHangs = new ArrayList<GioHang>();
 	
@@ -124,5 +129,23 @@ public class ApiController {
 //		}
 //		return "";
 //	}
+	
+	@GetMapping(path="LaySanPhamLimit",produces="text/plain; charset=utf-8")
+	@ResponseBody
+	public String LaySanPhamLimit(@RequestParam int spbatdau) {
+		
+		String html = "";
+		List<SanPham> listSanPhams = sanPhamService.LayDanhSachSanPham(spbatdau);
+		for (SanPham sanPham : listSanPhams) {
+			html += "<tr>";
+			html += "<td><div class='form-check'><label><input class='checkboxsanpham' type='checkbox' value=''></label></div></td>";
+			html += "<td class='tensp' data-masp='"+sanPham.getMasanpham()+"'>"+sanPham.getTensanpham() +"</td>";
+			html += "<td class='giatien'>"+sanPham.getGiatien() +"</td>";
+			html += "<td class='danhcho'>"+sanPham.getDanhcho() +"</td>";
+			html += "</tr>";
+		}
+		
+		return html;
+	}
 	
 }

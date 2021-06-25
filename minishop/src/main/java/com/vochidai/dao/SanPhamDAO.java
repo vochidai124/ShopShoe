@@ -1,5 +1,6 @@
 package com.vochidai.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -25,7 +26,14 @@ public class SanPhamDAO implements SanPhamImp{
 	@Transactional
 	public List<SanPham> LayDanhSachSanPham(int spbatdau) {
 		Session session = sessionFactory.getCurrentSession();
-		List<SanPham> listSanPhams = (List<SanPham>) session.createQuery("from SanPham").setFirstResult(spbatdau).setMaxResults(20).getResultList();
+		List<SanPham> listSanPhams = new ArrayList<SanPham>();
+		if(spbatdau < 0) {
+			String sql = "from SanPham";
+			listSanPhams = (List<SanPham>) session.createQuery(sql).getResultList();
+		}else {
+			listSanPhams = (List<SanPham>) session.createQuery("from SanPham").setFirstResult(spbatdau).setMaxResults(5).getResultList();
+		}
+		
 		return listSanPhams;
 	}
 	

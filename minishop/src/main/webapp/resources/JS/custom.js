@@ -151,7 +151,40 @@ $(document).ready(function() {
 				
 			}
 		});
-		
 	})
-
+	
+	$("body").on("click",".page-item",function(){
+		$(".page-item").removeClass("active");
+		$(this).addClass("active");
+		var sotrang = $(this).text();
+		var spbatdau = (sotrang - 1) * 5;
+		
+		$.ajax({
+			url: "/minishop/api/LaySanPhamLimit",
+			type: "GET",
+			data: {
+				spbatdau: spbatdau
+			},
+			success: function(value) {
+				var tbodysanpham = $("#table-sanpham").find("tbody");
+				tbodysanpham.empty();
+				tbodysanpham.append(value);
+			}
+		});
+	})
+	$("body").on("click",".page-item",function(){
+		
+		
+		$.ajax({
+			url: "/minishop/api/LaySanPhamLimit",
+			type: "GET",
+			data: {
+				
+			},
+			success: function(value) {
+			
+			}
+		});
+	})
+	
 });
