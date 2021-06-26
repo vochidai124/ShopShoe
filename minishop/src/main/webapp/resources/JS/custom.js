@@ -221,4 +221,10 @@ $(document).ready(function() {
 			}
 		})
 	})
+	$("body").on("click",".btn-chitiet",function(){
+		$(this).remove();
+		var chitietclone = $("#chitietsanpham").clone();
+		chitietclone.removeAttr("id");
+		$(".containerchitietsanpham").append(chitietclone);
+	})
 });

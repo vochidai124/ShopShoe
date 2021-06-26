@@ -22,6 +22,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Custom CSS -->
 <link href='<c:url value="/resources/css/style.css"/>' rel='stylesheet'/>
 <link href='<c:url value="/resources/css/morris.css"/>' rel='stylesheet'/>
+<link href='<c:url value="/resources/Styles/themsanpham.css"/>' rel='stylesheet'/>
 <!-- Graph CSS -->
 <link href='<c:url value="/resources/css/font-awesome.css"/>' rel='stylesheet' />
 <!-- jQuery -->
@@ -64,6 +65,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<br/>
 		<label for="hinhanh">Hình sản phẩm</label><br/>
 		<input type="file" id="hinhanh" name="hinhanh" class="form-control" />
+		<br/>
+		
+		<div class="containerchitietsanpham">
+			<div class="chitietsanpham">
+				<span>Chi tiết</span><br/>
+				<select name="mausanpham" class="form-control" id="mausanpham">
+					<c:forEach var="valuemau" items="${listmau }">
+						<option value="${valuemau.getMamau() }">${valuemau.getTenmau() }</option>
+					</c:forEach>
+				</select>
+				<br/>
+				<select name="sizesanpham" class="form-control" id="sizesanpham">
+					<c:forEach var="valuesize" items="${listsize }">
+						<option value="${valuesize.getMasize() }">${valuesize.getSize() }</option>
+					</c:forEach>
+				</select>
+				<br/>
+				<label for="soluong">Số lượng</label><br/>
+				<input type="number" min="1" id="soluong" name="soluong" class="form-control" placeholder="nhập số lượng" />
+				<br/>
+				<button type="button" class="btn btn-primary btn-chitiet">Thêm chi tiết</button>
+			</div>
+		</div>
+		
+		<div id="chitietsanpham" class="chitietsanpham">
+			<span>Chi tiết</span><br/>
+			<select name="mausanpham" class="form-control" id="mausanpham">
+				<c:forEach var="valuemau" items="${listmau }">
+					<option value="${valuemau.getMamau() }">${valuemau.getTenmau() }</option>
+				</c:forEach>
+			</select>
+			<br/>
+			<select name="sizesanpham" class="form-control" id="sizesanpham">
+				<c:forEach var="valuesize" items="${listsize }">
+					<option value="${valuesize.getMasize() }">${valuesize.getSize() }</option>
+				</c:forEach>
+			</select>
+			<br/>
+			<label for="soluong">Số lượng</label><br/>
+			<input type="number" min="1" id="soluong" name="soluong" class="form-control" placeholder="nhập số lượng" />
+			<br/>
+			<button type="button" class="btn btn-primary btn-chitiet">Thêm chi tiết</button>
+		</div>
 		<br/>
 	    <button type="button" class="btn btn-primary">Thêm sản phẩm</button>
 	</div>
