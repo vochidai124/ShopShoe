@@ -39,10 +39,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="row left-content container" style= "padding-top: 14px">
 	<div class="col-md-5 col-sm-12 form-group">
 		<label for="tensanpham">Tên sản phẩm</label><br/>
-		<input type="text" id="tensanpham" class="form-control" placeholder="nhập tên sản phẩm" />
+		<input type="text" id="tensanpham" name="tensanpham" class="form-control" placeholder="nhập tên sản phẩm" />
 		<br/>
 		<label for="giatien">Giá tiền</label><br/>
-		<input type="text" id="giatien" class="form-control" placeholder="nhập giá tiền" />
+		<input type="text" id="giatien" name="giatien" class="form-control" placeholder="nhập giá tiền" />
 		<br/>
 		<span>Dành cho</span><br/>
 		<label class="radio-inline">
@@ -53,17 +53,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	    </label>
 		<br/>
 		<label for="danhmucsanpham">Danh mục</label>
-		<select class="form-control" id="danhmucsanpham">
+		<select name="danhmucsanpham" class="form-control" id="danhmucsanpham">
 			<c:forEach var="valuedanhmuc" items="${danhmuc }">
 				<option value="${valuedanhmuc.getMadanhmuc() }">${valuedanhmuc.getTendanhmuc() }</option>
 			</c:forEach>
 		</select>
 		<br/>
 		<label for="mota">Mô tả</label><br/>
-		<textarea rows="5" type="text" id="mota" class="form-control" placeholder="nhập mô tả"></textarea>
+		<textarea rows="5" type="text" id="mota" name="mota" class="form-control" placeholder="nhập mô tả"></textarea>
 		<br/>
 		<label for="hinhanh">Hình sản phẩm</label><br/>
-		<input type="file" id="hinhanh" class="form-control" />
+		<input type="file" id="hinhanh" name="hinhanh" class="form-control" />
 		<br/>
 	    <button type="button" class="btn btn-primary">Thêm sản phẩm</button>
 	</div>
