@@ -18,6 +18,7 @@ import com.vochidai.daoimp.SanPhamImp;
 import com.vochidai.entity.ChiTietHoaDon;
 import com.vochidai.entity.ChiTietHoaDonid;
 import com.vochidai.entity.ChiTietSanPham;
+import com.vochidai.entity.KhuyenMai;
 import com.vochidai.entity.SanPham;
 
 @Repository

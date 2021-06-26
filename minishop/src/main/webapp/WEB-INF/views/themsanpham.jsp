@@ -36,14 +36,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
    <div class="page-container">
    <!--/content-inner-->
-<div class="left-content container" style= "padding-top: 14px">
-	<div class="row">
+<div class="row left-content container" style= "padding-top: 14px">
+	<div class="col-md-5 col-sm-12 form-group">
+		<label for="tensanpham">Tên sản phẩm</label><br/>
+		<input type="text" id="tensanpham" class="form-control" placeholder="nhập tên sản phẩm" />
+		<br/>
+		<label for="giatien">Giá tiền</label><br/>
+		<input type="text" id="giatien" class="form-control" placeholder="nhập giá tiền" />
+		<br/>
+		<span>Dành cho</span><br/>
+		<label class="radio-inline">
+	      <input type="radio" name="danhcho" checked>&nbsp;Nam&emsp;
+	    </label>
+	    <label class="radio-inline">
+	      <input type="radio" name="danhcho">&nbsp;Nữ
+	    </label>
+		<br/>
+		<label for="danhmucsanpham">Danh mục</label>
+		<select class="form-control" id="danhmucsanpham">
+			<c:forEach var="valuedanhmuc" items="${danhmuc }">
+				<option value="${valuedanhmuc.getMadanhmuc() }">${valuedanhmuc.getTendanhmuc() }</option>
+			</c:forEach>
+		</select>
+		<br/>
+		<label for="mota">Mô tả</label><br/>
+		<textarea rows="5" type="text" id="mota" class="form-control" placeholder="nhập mô tả"></textarea>
+		<br/>
+		<label for="hinhanh">Hình sản phẩm</label><br/>
+		<input type="file" id="hinhanh" class="form-control" />
+		<br/>
+	    <button type="button" class="btn btn-primary">Thêm sản phẩm</button>
+	</div>
+	<div class="col-md-7 col-sm-12">
 		<div style = "flex: 1;display: flex;justify-content: space-between;align-items: center;">
 			<h4>SẢN PHẨM</h4>
-			<div>
-			<button type="button" class="btn btn-primary">Thêm sản phẩm</button>
-			<button type="button" id="xoa-sanpham" class="btn btn-info">Xóa</button>
-			</div>
+			
 		</div>
 		<table id="table-sanpham" class="table">
 			<thead style="border-bottom: 1px solid">
@@ -87,6 +114,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       		</c:forEach>
 		  </ul>
 		</nav>
+		<button style="background-color: red;" type="button" id="xoa-sanpham" class="btn btn-info">Xóa</button>
 	</div>
 </div>
   <!--//content-inner-->
