@@ -3,8 +3,10 @@ package com.vochidai.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
@@ -22,8 +24,16 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.vochidai.entity.ChiTietSanPham;
+import com.vochidai.entity.DanhMucSanPham;
 import com.vochidai.entity.GioHang;
+import com.vochidai.entity.MauSanPham;
 import com.vochidai.entity.SanPham;
+import com.vochidai.entity.SizeSanPham;
 import com.vochidai.service.NhanVienService;
 import com.vochidai.service.SanPhamService;
 
@@ -188,5 +198,61 @@ public class ApiController {
 		}
 		return "true";
 	}
-	
+	@PostMapping("ThemSanPham")
+	@ResponseBody
+	public void ThemSanPham(@RequestParam String dataJson) {
+
+		ObjectMapper objectMapper = new ObjectMapper();
+		
+		JsonNode jsonObject;
+		try {
+			SanPham sanPham = new SanPham();
+			jsonObject = objectMapper.readTree(dataJson);
+			
+			DanhMucSanPham danhMucSanPham = new DanhMucSanPham();
+			danhMucSanPham.setMadanhmuc(jsonObject.get("danhmucsanpham").asInt());
+			
+			JsonNode jsonChitiet = jsonObject.get("chitietsanpham");
+			Set<ChiTietSanPham> listChitiet = new HashSet<ChiTietSanPham>();
+			for (JsonNode objectChitiet : jsonChitiet) {
+				
+				ChiTietSanPham chiTietSanPham = new ChiTietSanPham();
+				
+				MauSanPham mauSanPham = new MauSanPham();
+				mauSanPham.setMamau(objectChitiet.get("mausanpham").asInt());
+				
+				SizeSanPham sizeSanPham = new SizeSanPham();
+				sizeSanPham.setMasize(objectChitiet.get("sizesanpham").asInt());
+				
+				chiTietSanPham.setMausanpham(mauSanPham);
+				chiTietSanPham.setSizesanpham(sizeSanPham);
+				chiTietSanPham.setSoluong(objectChitiet.get("soluong").asInt());
+				
+				listChitiet.add(chiTietSanPham);
+				
+			}
+			
+			String tensanpham = jsonObject.get("tensanpham").asText();
+			String giatien = jsonObject.get("giatien").asText();
+			String mota = jsonObject.get("mota").asText();
+			String hinhsanpham = jsonObject.get("hinhsanpham").asText();
+			String danhcho = jsonObject.get("danhcho").asText();
+			
+			sanPham.setChitietsanpham(listChitiet);
+			sanPham.setDanhmucsanpham(danhMucSanPham);
+			sanPham.setGiatien(giatien);
+			sanPham.setHinhsanpham(hinhsanpham);
+			sanPham.setTensanpham(tensanpham);
+			sanPham.setMota(mota);
+			sanPham.setDanhcho(danhcho);
+			
+			sanPhamService.ThemSanPham(sanPham);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
 }

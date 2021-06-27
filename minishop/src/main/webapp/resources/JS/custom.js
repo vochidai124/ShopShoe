@@ -205,8 +205,10 @@ $(document).ready(function() {
 	})
 	
 	var files = [];
+	var tenhinh = "";
 	$("#hinhanh").change(function(event){
 		files = event.target.files;
+		tenhinh = files[0].name;
 		forms = new FormData();
 		forms.append("file", files[0]);
 		$.ajax({
@@ -226,5 +228,43 @@ $(document).ready(function() {
 		var chitietclone = $("#chitietsanpham").clone();
 		chitietclone.removeAttr("id");
 		$(".containerchitietsanpham").append(chitietclone);
+	})
+	
+	$("#btnThemSanPham").click(function(event){
+		event.preventDefault();
+		var formdata = $("#form-sanpham").serializeArray();
+		json = {};
+		arrayChitiet = [];
+		
+		$.each(formdata, function(i, field){
+				json[field.name] = field.value;
+		});
+		$(".containerchitietsanpham > .chitietsanpham").each(function(){
+			objectChitiet = {};
+			
+			var mausanpham = $(this).find("#mausanpham").val();
+			var sizesanpham = $(this).find("#sizesanpham").val();
+			var soluong = $(this).find("#soluong").val();
+			
+			objectChitiet["mausanpham"] = mausanpham;
+			objectChitiet["sizesanpham"] = sizesanpham;
+			objectChitiet["soluong"] = soluong;
+			
+			arrayChitiet.push(objectChitiet);
+		})
+		json["chitietsanpham"] = arrayChitiet;
+		json["hinhsanpham"] = tenhinh;
+		$.ajax({
+			url: "/minishop/api/ThemSanPham",
+			type: "POST",
+			data: {
+				dataJson: JSON.stringify(json)
+			},
+
+			success: function(value) {
+			
+			}
+		})
+		
 	})
 });

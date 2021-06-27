@@ -38,7 +38,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    <div class="page-container">
    <!--/content-inner-->
 <div class="row left-content container" style= "padding-top: 14px">
-	<div class="col-md-5 col-sm-12 form-group">
+
+	<div class="form-group col-md-5 col-sm-12">
+		<form class="form-group" action="" id="form-sanpham">
 		<label for="tensanpham">Tên sản phẩm</label><br/>
 		<input type="text" id="tensanpham" name="tensanpham" class="form-control" placeholder="nhập tên sản phẩm" />
 		<br/>
@@ -47,10 +49,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<br/>
 		<span>Dành cho</span><br/>
 		<label class="radio-inline">
-	      <input type="radio" name="danhcho" checked>&nbsp;Nam&emsp;
+	      <input type="radio" name="danhcho" value="nam" checked>&nbsp;Nam&emsp;
 	    </label>
 	    <label class="radio-inline">
-	      <input type="radio" name="danhcho">&nbsp;Nữ
+	      <input type="radio" name="danhcho" value="nu">&nbsp;Nữ
 	    </label>
 		<br/>
 		<label for="danhmucsanpham">Danh mục</label>
@@ -63,9 +65,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<label for="mota">Mô tả</label><br/>
 		<textarea rows="5" type="text" id="mota" name="mota" class="form-control" placeholder="nhập mô tả"></textarea>
 		<br/>
-		<label for="hinhanh">Hình sản phẩm</label><br/>
-		<input type="file" id="hinhanh" name="hinhanh" class="form-control" />
+		<label for="hinhsanpham">Hình sản phẩm</label><br/>
+		<input type="file" id="hinhsanpham" name="hinhsanpham" class="form-control" />
 		<br/>
+		
+		<div id="chitietsanpham" class="chitietsanpham">
+			<span>Chi tiết</span><br/>
+			<select name="mausanpham" class="form-control" id="mausanpham">
+				<c:forEach var="valuemau" items="${listmau }">
+					<option value="${valuemau.getMamau() }">${valuemau.getTenmau() }</option>
+				</c:forEach>
+			</select>
+			<br/>
+			<select name="sizesanpham" class="form-control" id="sizesanpham">
+				<c:forEach var="valuesize" items="${listsize }">
+					<option value="${valuesize.getMasize() }">${valuesize.getSize() }</option>
+				</c:forEach>
+			</select>
+			<br/>
+			<label for="soluong">Số lượng</label><br/>
+			<input type="number" value="1" min="1" id="soluong" name="soluong" class="form-control" placeholder="nhập số lượng" />
+			<br/>
+			<button type="button" class="btn btn-primary btn-chitiet">Thêm chi tiết</button>
+		</div>
 		
 		<div class="containerchitietsanpham">
 			<div class="chitietsanpham">
@@ -83,34 +105,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</select>
 				<br/>
 				<label for="soluong">Số lượng</label><br/>
-				<input type="number" min="1" id="soluong" name="soluong" class="form-control" placeholder="nhập số lượng" />
+				<input type="number" value="1" min="1" id="soluong" name="soluong" class="form-control" placeholder="nhập số lượng" />
 				<br/>
 				<button type="button" class="btn btn-primary btn-chitiet">Thêm chi tiết</button>
 			</div>
 		</div>
-		
-		<div id="chitietsanpham" class="chitietsanpham">
-			<span>Chi tiết</span><br/>
-			<select name="mausanpham" class="form-control" id="mausanpham">
-				<c:forEach var="valuemau" items="${listmau }">
-					<option value="${valuemau.getMamau() }">${valuemau.getTenmau() }</option>
-				</c:forEach>
-			</select>
-			<br/>
-			<select name="sizesanpham" class="form-control" id="sizesanpham">
-				<c:forEach var="valuesize" items="${listsize }">
-					<option value="${valuesize.getMasize() }">${valuesize.getSize() }</option>
-				</c:forEach>
-			</select>
-			<br/>
-			<label for="soluong">Số lượng</label><br/>
-			<input type="number" min="1" id="soluong" name="soluong" class="form-control" placeholder="nhập số lượng" />
-			<br/>
-			<button type="button" class="btn btn-primary btn-chitiet">Thêm chi tiết</button>
-		</div>
+		</form>
 		<br/>
-	    <button type="button" class="btn btn-primary">Thêm sản phẩm</button>
+	    <button type="button" id="btnThemSanPham" class="btn btn-primary">Thêm sản phẩm</button>
 	</div>
+	
 	<div class="col-md-7 col-sm-12">
 		<div style = "flex: 1;display: flex;justify-content: space-between;align-items: center;">
 			<h4>SẢN PHẨM</h4>

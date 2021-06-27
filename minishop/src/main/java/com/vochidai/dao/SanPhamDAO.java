@@ -74,4 +74,11 @@ public class SanPhamDAO implements SanPhamImp{
 		return false;
 	}
 
+	@Transactional
+	public boolean ThemSanPham(SanPham sanPham) {
+		Session session = sessionFactory.getCurrentSession();
+		int id = (Integer) session.save(sanPham);
+		return false;
+	}
+
 }

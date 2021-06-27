@@ -22,7 +22,7 @@ public class SanPham {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int masanpham;
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "madanhmuc")
 	DanhMucSanPham danhmucsanpham;
 	String tensanpham;
