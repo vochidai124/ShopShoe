@@ -1,6 +1,7 @@
 
 #body-login {
 	background-color: #7e746d;
+	margin-top: 30px;
 }
 
 #body-flex-login {
@@ -28,6 +29,9 @@
 	position: absolute;
 	margin-top: 500px;
 }
+#header-bottom-left img{
+	width: 15px;
+}
 
 #header-top-left {
 	position: absolute;
@@ -37,6 +41,8 @@
 
 #text-logo {
 	font-size: 50px;
+	display: block;
+	padding: 15px;
 }
 
 #hint-text-logo {

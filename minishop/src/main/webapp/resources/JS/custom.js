@@ -17,9 +17,13 @@ $(document).ready(function() {
 					duongDanHienTai = window.location.href
 					duongDan = duongDanHienTai.replace("dangnhap/","");
 					window.location = duongDan;
+				}if(value == ten){
+					duongDanHienTai = window.location.href
+					duongDan = duongDanHienTai.replace("dangnhap/","themsanpham");
+					window.location = duongDan;
 				}
 				else{
-					$("#ketqua").text("thatbai");
+					$("#ketqua").text("Đăng nhập thất bại");
 				}
 		}
 		});

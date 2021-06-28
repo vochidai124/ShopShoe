@@ -96,27 +96,33 @@
                                 Hỗ Trợ
                             </a>
                         </li>
-                        <!-- <li class="header__navbar-item header__navbar-item--separate header__navbar-item--strong">Đăng Kí</li>
-                        <li class="header__navbar-item header__navbar-item--strong">Đăng Nhập</li> -->
-                        <li class="header__navbar-item header__navbar-user">
-                            <img src='<c:url value = "/resources/image/user.jpg" />' alt="" class="header__navbar-user-img">
-                            <span class="header__navbar-user-name">Phong Hào</span>
-
-                            <ul class="header__navbar-user-menu">
-                                <li class="header__navbar-user-item">
-                                    <a href="">Tài khoản của tôi</a>
-                                </li>
-                                <li class="header__navbar-user-item">
-                                    <a href="">Địa chỉ của tôi</a>
-                                </li>
-                                <li class="header__navbar-user-item">
-                                    <a href="">Đơn mua</a>
-                                </li>
-                                <li class="header__navbar-user-item header__navbar-user-item--separate">
-                                    <a href="">Đăng xuất</a>
-                                </li>
-                            </ul>
-                        </li>
+                        <c:choose>
+                        	<c:when test="${chucaidau!=null }">
+                        		<li class="header__navbar-item header__navbar-user">
+		                            <img src='<c:url value = "/resources/image/user.jpg" />' alt="" class="header__navbar-user-img">
+		                            <span class="header__navbar-user-name">${chucaidau }</span>
+		
+		                            <ul class="header__navbar-user-menu">
+		                                <li class="header__navbar-user-item">
+		                                    <a href="">Tài khoản của tôi</a>
+		                                </li>
+		                                <li class="header__navbar-user-item">
+		                                    <a href="">Địa chỉ của tôi</a>
+		                                </li>
+		                                <li class="header__navbar-user-item">
+		                                    <a href="">Đơn mua</a>
+		                                </li>
+		                                <li class="header__navbar-user-item header__navbar-user-item--separate">
+		                                    <a href="">Đăng xuất</a>
+		                                </li>
+		                            </ul>
+		                        </li>
+                        	</c:when>
+                        	<c:otherwise>
+                        		<li class="header__navbar-item header__navbar-item--separate header__navbar-item--strong"><a href="dangnhap/">Đăng Kí</a></li>
+                        		<li class="header__navbar-item header__navbar-item--strong"><a href="dangnhap/">Đăng Nhập</a></li>
+                        	</c:otherwise>
+                        </c:choose>
                     </ul>
                 </nav>
                 <!-- Header with search -->
