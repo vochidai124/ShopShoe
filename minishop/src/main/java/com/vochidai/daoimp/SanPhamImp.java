@@ -13,4 +13,5 @@ public interface SanPhamImp {
 	
 	boolean XoaSanPhamTheoMaSanPham(int masanpham);
 	boolean ThemSanPham(SanPham sanPham);
+	boolean CapNhatSanPham(SanPham sanPham);
 }

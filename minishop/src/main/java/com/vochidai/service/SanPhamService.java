@@ -40,4 +40,9 @@ public class SanPhamService implements SanPhamImp{
 		return sanPhamDAO.ThemSanPham(sanPham);
 	}
 
+	public boolean CapNhatSanPham(SanPham sanPham) {
+		
+		return sanPhamDAO.CapNhatSanPham(sanPham);
+	}
+
 }

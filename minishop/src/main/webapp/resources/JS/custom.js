@@ -1,5 +1,7 @@
 $(document).ready(function() {
 	
+	var masanpham = 0;
+	
 	$("#btnDangNhap").click(function() {
 		var ten = $("#email").val();
 		var password = $("#matkhau").val();
@@ -267,4 +269,88 @@ $(document).ready(function() {
 		})
 		
 	})
+	
+	$("#btnCapNhatSanPham").click(function(event){
+		event.preventDefault();
+		var formdata = $("#form-sanpham").serializeArray();
+		json = {};
+		arrayChitiet = [];
+		
+		$.each(formdata, function(i, field){
+				json[field.name] = field.value;
+		});
+		$(".containerchitietsanpham > .chitietsanpham").each(function(){
+			objectChitiet = {};
+			
+			var mausanpham = $(this).find("#mausanpham").val();
+			var sizesanpham = $(this).find("#sizesanpham").val();
+			var soluong = $(this).find("#soluong").val();
+			
+			objectChitiet["mausanpham"] = mausanpham;
+			objectChitiet["sizesanpham"] = sizesanpham;
+			objectChitiet["soluong"] = soluong;
+			
+			arrayChitiet.push(objectChitiet);
+		})
+		json["masanpham"] = masanpham;
+		json["chitietsanpham"] = arrayChitiet;
+		json["hinhsanpham"] = tenhinh;
+		
+		$.ajax({
+			url: "/minishop/api/CapNhatSanPham",
+			type: "POST",
+			data: {
+				dataJson: JSON.stringify(json)
+			},
+
+			success: function(value) {
+			
+			}
+		})
+	})
+	
+	$("body").on("click",".capnhatsanpham",function(){
+		masanpham = $(this).attr("data-id");
+		
+		$("#btnCapNhatSanPham").removeClass("hidden");
+		$("#btnThoat").removeClass("hidden");
+		$("#btnThemSanPham").addClass("hidden");
+		
+		$.ajax({
+			url: "/minishop/api/LayDanhSachSanPhamTheoMa",
+			type: "POST",
+			data: {
+				masanpham: masanpham
+			},
+
+			success: function(value) {
+				$("#tensanpham").val(value.tensanpham);
+				$("#giatien").val(value.giatien);
+				$("#mota").val(value.mota);
+				if(value.danhcho === "nam"){
+					$("#rd-nam").attr('checked', true);
+				}else{
+					$("#rd-nu").attr('checked', true);
+				}
+				
+				$("#danhmucsanpham").val(value.danhmucsanpham.madanhmuc);
+				
+				$(".containerchitietsanpham").html("");
+				
+				var countchitiet = value.chitietsanpham.length;
+				for(i=0;i<countchitiet;i++){
+					var chitietclone = $("#chitietsanpham").clone().removeAttr("id");
+					if(i<countchitiet-1){
+						chitietclone.find(".btn-chitiet").remove();
+					}
+					chitietclone.find("#mausanpham").val(value.chitietsanpham[i].mausanpham.mamau);
+					chitietclone.find("#sizesanpham").val(value.chitietsanpham[i].sizesanpham.masize);
+					chitietclone.find("#soluong").val(value.chitietsanpham[i].soluong);
+					$(".containerchitietsanpham").append(chitietclone);
+				}
+				
+			}
+		})
+	})
+	
 });

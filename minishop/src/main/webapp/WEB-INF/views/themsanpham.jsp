@@ -49,10 +49,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<br/>
 		<span>Dành cho</span><br/>
 		<label class="radio-inline">
-	      <input type="radio" name="danhcho" value="nam" checked>&nbsp;Nam&emsp;
+	      <input type="radio" name="danhcho" id="rd-nam" value="nam">&nbsp;Nam&emsp;
 	    </label>
 	    <label class="radio-inline">
-	      <input type="radio" name="danhcho" value="nu">&nbsp;Nữ
+	      <input type="radio" name="danhcho" id="rd-nu" value="nu">&nbsp;Nữ
 	    </label>
 		<br/>
 		<label for="danhmucsanpham">Danh mục</label>
@@ -113,8 +113,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</form>
 		<br/>
 	    <button type="button" id="btnThemSanPham" class="btn btn-primary">Thêm sản phẩm</button>
+	    <button type="button" id="btnCapNhatSanPham" class="btn btn-primary hidden">Cập nhật</button>
+		<button type="button" id="btnThoat" class="btn btn-primary hidden">Thoát</button>
 	</div>
-	
 	<div class="col-md-7 col-sm-12">
 		<div style = "flex: 1;display: flex;justify-content: space-between;align-items: center;">
 			<h4>SẢN PHẨM</h4>
@@ -144,6 +145,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				      <td class="tensp" data-masp="${value.getMasanpham() }">${value.getTensanpham() }</td>
 				      <td class="giatien">${value.getGiatien() }</td>
 				      <td class="danhcho">${value.getDanhcho() }</td>
+				      <td class="btn btn-warning capnhatsanpham" data-id="${value.getMasanpham() }">Sửa</td>
 				    </tr>
 				</c:forEach>
 			</tbody>
