@@ -119,8 +119,8 @@
 		                        </li>
                         	</c:when>
                         	<c:otherwise>
-                        		<li class="header__navbar-item header__navbar-item--separate header__navbar-item--strong"><a href="dangnhap/">Đăng Kí</a></li>
-                        		<li class="header__navbar-item header__navbar-item--strong"><a href="dangnhap/">Đăng Nhập</a></li>
+                        		<li class="header__navbar-item header__navbar-item--separate header__navbar-item--strong"><a href="dangnhap/" class="header__navbar-item-link">Đăng Kí</a></li>
+                        		<li class="header__navbar-item header__navbar-item--strong"><a href="dangnhap/" class="header__navbar-item-link">Đăng Nhập</a></li>
                         	</c:otherwise>
                         </c:choose>
                     </ul>
@@ -178,76 +178,48 @@
                     <div class="header__cart">
                         <div class="header__cart-wrap">
                             <i class="header__search-icon fas fa-shopping-cart"></i>
-                            <span class="header__cart-notice">3</span>
+                            <c:if test="${soluongspgiohang > 0}">
+                            	<span class="header__cart-notice">${soluongspgiohang }</span>
+                            </c:if>
+                            <c:if test="${soluongspgiohang <= 0 || soluongspgiohang == null}">
+                            	<span>${soluongspgiohang }</span>
+                            </c:if>
                             <!-- No cart: header__cart-list--no-cart -->
                             <div class="header__cart-list">
-                                <img src='<c:url value = "/resources/image/empty_cart.png" />' alt="img_no_cart" class="header__cart-no-cart-img">
-                                <span class="header__cart-list--no-cart-msg">
-                                    Chưa có sản phẩm
-                                </span>
-
-                                <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
-                                <ul class="header__cart-list-item">
-                                    <!-- Cart item -->
-                                    <li class="header__cart-item">
-                                        <img src='<c:url value = "/resources/image/sanpham_1.jpg" />' alt="" class="header__cart-img">
-                                        <div class="header__cart-item-info">
-                                            <div class="header__cart-item-head">
-                                                <h5 class="header__cart-item-name">Giày Sneaker Thể Thao</h5>
-                                                <div class="header__cart-item-price-wrap">
-                                                    <span class="header__cart-item-price">2.000.000đ</span>
-                                                    <span class="header__cart-item-multiply">x</span>
-                                                    <span class="header__cart-item-qnt">2</span>
-                                                </div>
-                                            </div>
-                                            <div class="header__cart-item-body">
-                                                <span class="header__cart-item-description">
-                                                    Phân loại: Bạc
-                                                </span>
-                                                <span class="header__cart-item-remove">Xóa</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="header__cart-item">
-                                        <img src='<c:url value = "/resources/image/sanpham_2.jpg" />' alt="" class="header__cart-img">
-                                        <div class="header__cart-item-info">
-                                            <div class="header__cart-item-head">
-                                                <h5 class="header__cart-item-name">Giày Sneaker Thể Thao</h5>
-                                                <div class="header__cart-item-price-wrap">
-                                                    <span class="header__cart-item-price">2.000.000đ</span>
-                                                    <span class="header__cart-item-multiply">x</span>
-                                                    <span class="header__cart-item-qnt">2</span>
-                                                </div>
-                                            </div>
-                                            <div class="header__cart-item-body">
-                                                <span class="header__cart-item-description">
-                                                    Phân loại: Bạc
-                                                </span>
-                                                <span class="header__cart-item-remove">Xóa</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="header__cart-item">
-                                        <img src='<c:url value = "/resources/image/sanpham_3.jpg" />' alt="" class="header__cart-img">
-                                        <div class="header__cart-item-info">
-                                            <div class="header__cart-item-head">
-                                                <h5 class="header__cart-item-name">Giày Sneaker Thể Thao</h5>
-                                                <div class="header__cart-item-price-wrap">
-                                                    <span class="header__cart-item-price">500.000đ</span>
-                                                    <span class="header__cart-item-multiply">x</span>
-                                                    <span class="header__cart-item-qnt">2</span>
-                                                </div>
-                                            </div>
-                                            <div class="header__cart-item-body">
-                                                <span class="header__cart-item-description">
-                                                    Phân loại: Bạc
-                                                </span>
-                                                <span class="header__cart-item-remove">Xóa</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <a href="giohang" class="header__car-view-cart btn btn--primary">Xem giỏ hàng</a>
+                            		<c:choose>
+							  			<c:when test="${soluongspgiohang >= 0 || soluongspgiohang != null}">
+							  				<h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
+			                                <ul class="header__cart-list-item">
+			                                    <!-- Cart item -->
+			                                    <c:forEach var = "i" begin = "1" end = "${soluongspgiohang }">
+			                                    	<li class="header__cart-item">
+				                                        <img src='<c:url value = "/resources/image/${listSanPhams.get(i).getHinhsanpham() }" />' alt="" class="header__cart-img">
+				                                        <div class="header__cart-item-info">
+				                                            <div class="header__cart-item-head">
+				                                                <h5 class="header__cart-item-name">${listSanPhams.get(i).getTensanpham() }</h5>
+				                                                <div class="header__cart-item-price-wrap">
+				                                                    <span class="header__cart-item-price">${listSanPhams.get(i).getGiatien() }đ</span>
+				                                                </div>
+				                                            </div>
+				                                            <div class="header__cart-item-body">
+				                                                <span class="header__cart-item-description">
+				                                                    Phân loại: ${listSanPhams.get(i).getDanhcho() }
+				                                                </span>
+				                                                <span class="header__cart-item-remove">Xóa</span>
+				                                            </div>
+				                                        </div>
+				                                    </li>
+			                                    </c:forEach>
+			                                </ul>
+			                                <a href="giohang" class="header__car-view-cart btn btn--primary">Xem giỏ hàng</a>
+							  			</c:when>
+							  			<c:otherwise>
+								  			<img src='<c:url value = "/resources/image/empty_cart.png" />' alt="img_no_cart" class="header__cart-no-cart-img">
+			                                <span class="header__cart-list--no-cart-msg">
+			                                    Chưa có sản phẩm
+			                                </span>
+							  			</c:otherwise>
+							  		</c:choose>
                             </div>
                         </div>
                     </div>
@@ -359,27 +331,20 @@
                                     <i class="pagination-item__icon fas fa-angle-left"></i>
                                 </a>
                             </li>
-                            <li class="pagination-item pagination-item--active">
-                                <a href="#" class="pagination-item__link">1</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="#" class="pagination-item__link">2</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="#" class="pagination-item__link">3</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="#" class="pagination-item__link">4</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="#" class="pagination-item__link">5</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="#" class="pagination-item__link">...</a>
-                            </li>
-                            <li class="pagination-item">
-                                <a href="#" class="pagination-item__link">14</a>
-                            </li>
+                            <c:forEach var = "i" begin = "1" end = "${tongsopage }">
+                            	<c:choose>
+						  			<c:when test="${i==1 }">
+						  				<li class="pagination-item pagination-item--active">
+		                                	<a href="#" class="pagination-item__link">${i }</a>
+		                                </li>
+						  			</c:when>
+						  			<c:otherwise>
+						  				<li class="pagination-item">
+		                                	<a href="#" class="pagination-item__link">${i }</a>
+		                                </li>
+						  			</c:otherwise>
+						  		</c:choose>
+					      	</c:forEach>
                             <li class="pagination-item">
                                 <a href="#" class="pagination-item__link">
                                     <i class="pagination-item__icon fas fa-angle-right"></i>

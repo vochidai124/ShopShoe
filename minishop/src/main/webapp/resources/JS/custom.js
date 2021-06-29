@@ -163,7 +163,7 @@ $(document).ready(function() {
 		$(".page-item").removeClass("active");
 		$(this).addClass("active");
 		var sotrang = $(this).text();
-		var spbatdau = (sotrang - 1) * 5;
+		var spbatdau = (sotrang - 1) * 10;
 		
 		$.ajax({
 			url: "/minishop/api/LaySanPhamLimit",
@@ -175,6 +175,24 @@ $(document).ready(function() {
 				var tbodysanpham = $("#table-sanpham").find("tbody");
 				tbodysanpham.empty();
 				tbodysanpham.append(value);
+			}
+		});
+	})
+	$("body").on("click",".pagination-item",function(){
+		$(".pagination-item").removeClass("pagination-item--active");
+		$(this).addClass("pagination-item--active");
+		var sotrang = $(this).text();
+		var spbatdau = (sotrang - 1) * 10;
+		$.ajax({
+			url: "/minishop/api/PhanTrangTrangChu",
+			type: "GET",
+			data: {
+				spbatdau: spbatdau
+			},
+			success: function(value) {
+				var data = $(".home-product").find(".grid__row");
+				data.empty();
+				data.append(value);
 			}
 		});
 	})

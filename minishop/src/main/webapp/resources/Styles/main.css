@@ -515,15 +515,7 @@
     font-weight: 400;
     color: var(--primary-color)
 }
-.header__cart-item-multiply{
-    font-size: 0.9rem;
-    margin: 0 4px;
-    color: #757575;
-}
-.header__cart-item-qnt{
-    color: #757575;
-    font-size: 1.2rem;
-}
+
 .header__cart-item-body{
     display: flex;
     justify-content: space-between;
@@ -570,11 +562,13 @@
     margin-right: auto;
 }
 .header__cart-no-cart-img{
-    width: 50%;
-    display: none;
+    width: 100%;
+    padding: 20px;
+}
+.hidden{
+	display: none;
 }
 .header__cart-list--no-cart-msg{
-    display: none;
     font-size: 1.4rem;
     margin-top: 14px;
     color: var(--text-color);

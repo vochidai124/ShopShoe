@@ -36,7 +36,7 @@ public class SanPhamDAO implements SanPhamImp{
 			String sql = "from SanPham";
 			listSanPhams = (List<SanPham>) session.createQuery(sql).getResultList();
 		}else {
-			listSanPhams = (List<SanPham>) session.createQuery("from SanPham").setFirstResult(spbatdau).setMaxResults(5).getResultList();
+			listSanPhams = (List<SanPham>) session.createQuery("from SanPham").setFirstResult(spbatdau).setMaxResults(10).getResultList();
 		}
 		
 		return listSanPhams;

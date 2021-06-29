@@ -19,8 +19,10 @@ import com.vochidai.entity.ChiTietHoaDon;
 import com.vochidai.entity.ChiTietHoaDonid;
 import com.vochidai.entity.GioHang;
 import com.vochidai.entity.HoaDon;
+import com.vochidai.entity.SanPham;
 import com.vochidai.service.ChiTietHoaDonService;
 import com.vochidai.service.HoaDonService;
+import com.vochidai.service.SanPhamService;
 
 @Controller
 @RequestMapping("/giohang")
@@ -28,7 +30,8 @@ public class GioHangController {
 
 	@Autowired
 	HoaDonService hoaDonService;
-	
+	@Autowired
+	SanPhamService sanPhamService;
 	@Autowired
 	ChiTietHoaDonService chiTietHoaDonService;
 	
@@ -40,6 +43,8 @@ public class GioHangController {
 			modelMap.addAttribute("soluongspgiohang", gioHangs.size());
 			modelMap.addAttribute("giohang", gioHangs);
 		}
+		List<SanPham> listSanPhams = sanPhamService.LayDanhSachSanPham(0);
+		modelMap.addAttribute("listSanPhams", listSanPhams);
 		
 		return "giohang";
 	}

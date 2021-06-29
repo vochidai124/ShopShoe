@@ -38,7 +38,8 @@ public class ChiTietController {
 			List<GioHang> gioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
 			modelMap.addAttribute("soluongspgiohang", gioHangs.size());
 		}
-		
+		List<SanPham> listSanPhams = sanPhamService.LayDanhSachSanPham(0);
+		modelMap.addAttribute("listSanPhams", listSanPhams);
 		modelMap.addAttribute("sanPham", sanPham);
 		modelMap.addAttribute("danhmuc", danhMucSanPhams);
 		

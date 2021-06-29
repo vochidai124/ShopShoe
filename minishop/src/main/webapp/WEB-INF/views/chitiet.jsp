@@ -180,73 +180,40 @@
                             </c:if>
                             <!-- No cart: header__cart-list--no-cart -->
                             <div class="header__cart-list">
-                                <img src='<c:url value = "/resources/image/empty_cart.png" />' alt="img_no_cart" class="header__cart-no-cart-img">
-                                <span class="header__cart-list--no-cart-msg">
-                                    Chưa có sản phẩm
-                                </span>
-
-                                <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
-                                <ul class="header__cart-list-item">
-                                    <!-- Cart item -->
-                                    <li class="header__cart-item">
-                                        <img src='<c:url value = "/resources/image/sanpham_1.jpg" />' alt="" class="header__cart-img">
-                                        <div class="header__cart-item-info">
-                                            <div class="header__cart-item-head">
-                                                <h5 class="header__cart-item-name">Giày Sneaker Thể Thao</h5>
-                                                <div class="header__cart-item-price-wrap">
-                                                    <span class="header__cart-item-price">2.000.000đ</span>
-                                                    <span class="header__cart-item-multiply">x</span>
-                                                    <span class="header__cart-item-qnt">2</span>
-                                                </div>
-                                            </div>
-                                            <div class="header__cart-item-body">
-                                                <span class="header__cart-item-description">
-                                                    Phân loại: Bạc
-                                                </span>
-                                                <span class="header__cart-item-remove">Xóa</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="header__cart-item">
-                                        <img src='<c:url value = "/resources/image/sanpham_2.jpg" />' alt="" class="header__cart-img">
-                                        <div class="header__cart-item-info">
-                                            <div class="header__cart-item-head">
-                                                <h5 class="header__cart-item-name">Giày Sneaker Thể Thao</h5>
-                                                <div class="header__cart-item-price-wrap">
-                                                    <span class="header__cart-item-price">2.000.000đ</span>
-                                                    <span class="header__cart-item-multiply">x</span>
-                                                    <span class="header__cart-item-qnt">2</span>
-                                                </div>
-                                            </div>
-                                            <div class="header__cart-item-body">
-                                                <span class="header__cart-item-description">
-                                                    Phân loại: Bạc
-                                                </span>
-                                                <span class="header__cart-item-remove">Xóa</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="header__cart-item">
-                                        <img src='<c:url value = "/resources/image/sanpham_3.jpg" />' alt="" class="header__cart-img">
-                                        <div class="header__cart-item-info">
-                                            <div class="header__cart-item-head">
-                                                <h5 class="header__cart-item-name">Giày Sneaker Thể Thao</h5>
-                                                <div class="header__cart-item-price-wrap">
-                                                    <span class="header__cart-item-price">500.000đ</span>
-                                                    <span class="header__cart-item-multiply">x</span>
-                                                    <span class="header__cart-item-qnt">2</span>
-                                                </div>
-                                            </div>
-                                            <div class="header__cart-item-body">
-                                                <span class="header__cart-item-description">
-                                                    Phân loại: Bạc
-                                                </span>
-                                                <span class="header__cart-item-remove">Xóa</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <a href="/minishop/giohang" class="header__car-view-cart btn btn--primary">Xem giỏ hàng</a>
+                            		<c:choose>
+							  			<c:when test="${soluongspgiohang >= 0 || soluongspgiohang != null}">
+							  				<h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
+			                                <ul class="header__cart-list-item">
+			                                    <!-- Cart item -->
+			                                    <c:forEach var = "i" begin = "1" end = "${soluongspgiohang }">
+			                                    	<li class="header__cart-item">
+				                                        <img src='<c:url value = "/resources/image/${listSanPhams.get(i).getHinhsanpham() }" />' alt="" class="header__cart-img">
+				                                        <div class="header__cart-item-info">
+				                                            <div class="header__cart-item-head">
+				                                                <h5 class="header__cart-item-name">${listSanPhams.get(i).getTensanpham() }</h5>
+				                                                <div class="header__cart-item-price-wrap">
+				                                                    <span class="header__cart-item-price">${listSanPhams.get(i).getGiatien() }đ</span>
+				                                                </div>
+				                                            </div>
+				                                            <div class="header__cart-item-body">
+				                                                <span class="header__cart-item-description">
+				                                                    Phân loại: ${listSanPhams.get(i).getDanhcho() }
+				                                                </span>
+				                                                <span class="header__cart-item-remove">Xóa</span>
+				                                            </div>
+				                                        </div>
+				                                    </li>
+			                                    </c:forEach>
+			                                </ul>
+			                                <a href="../giohang" class="header__car-view-cart btn btn--primary">Xem giỏ hàng</a>
+							  			</c:when>
+							  			<c:otherwise>
+								  			<img src='<c:url value = "/resources/image/empty_cart.png" />' alt="img_no_cart" class="header__cart-no-cart-img">
+			                                <span class="header__cart-list--no-cart-msg">
+			                                    Chưa có sản phẩm
+			                                </span>
+							  			</c:otherwise>
+							  		</c:choose>
                             </div>
                         </div>
                     </div>

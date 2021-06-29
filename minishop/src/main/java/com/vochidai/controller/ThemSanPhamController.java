@@ -41,7 +41,7 @@ public class ThemSanPhamController {
 		List<MauSanPham> listMauSanPhams = mauSanPhamService.LayDanhSachMau();
 		List<SizeSanPham> listSizeSanPhams = sizeSanPhamService.LayDanhSachSize();
 		
-		double tongsopage = Math.ceil((double) allSanPham.size() / 5);
+		double tongsopage = Math.ceil((double) allSanPham.size() / 10);
 		
 		modelMap.addAttribute("listSanPham", listSanPhams);
 		modelMap.addAttribute("allSanPham", allSanPham);

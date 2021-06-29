@@ -172,6 +172,35 @@ public class ApiController {
 		
 		return html;
 	}
+	
+	@GetMapping(path="PhanTrangTrangChu",produces="text/plain; charset=utf-8")
+	@ResponseBody
+	public String PhanTrangTrangChu(@RequestParam int spbatdau) {
+		
+		String html = "";
+		List<SanPham> listSanPhams = sanPhamService.LayDanhSachSanPham(spbatdau);
+		for (SanPham sanPham : listSanPhams) {
+//			html += "<tr>";
+//			html += "<td><div class='form-check'><label><input class='checkboxsanpham' type='checkbox' value='"+sanPham.getMasanpham()+"'></label></div></td>";
+//			html += "<td class='tensp' data-masp='"+sanPham.getMasanpham()+"'>"+sanPham.getTensanpham() +"</td>";
+//			html += "<td class='giatien'>"+sanPham.getGiatien() +"</td>";
+//			html += "<td class='danhcho'>"+sanPham.getDanhcho() +"</td>";
+//			html += "<td class='btn btn-warning capnhatsanpham' data-id='" + sanPham.getMasanpham() + "'>Sửa</td>";
+//					
+//			html += "</tr>";
+			html += "<div class='grid__column-2-4'>";
+			html += "<a class='home-product-item' href='chitiet/" + sanPham.getMasanpham() + "'>'";
+			html += "<div class='home-product-item__img' style='background-image: url(./resources/image/sanpham/"+sanPham.getHinhsanpham()+");'></div>";
+			html += "<h4 class='home-product-item__name'>"+sanPham.getTensanpham() +"</h4>";
+			html += "<div class='home-product-item__price'>";
+			html += "<span class='home-product-item__price-old'>1000.000đ</span>";
+			html += "<span class='home-product-item__price-current'>"+sanPham.getGiatien()+" VNĐ</span>";
+			html +="</div>";
+			html +="<div class='home-product-item__action'><span class='home-product-item__like home-product-item__like--liked'><i class='home-product-item__like-icon-empty far fa-heart'></i><i class='home-product-item__like-icon-fill fas fa-heart'></i></span><div class='home-product-item__rating'><i class='home-product-item__star--gold fas fa-star'></i><i class='home-product-item__star--gold fas fa-star'></i><i class='home-product-item__star--gold fas fa-star'></i><i class='home-product-item__star--gold fas fa-star'></i><i class='fas fa-star'></i></div><div class='home-product-item__sold'>88 đã bán</div></div><div class='home-product-item__origin'><span class='home-product-item__brand'>Whoo</span><span class='home-product-item__origin-name'>Nhật Bản</span></div><div class='home-product-item__favourite'><i class='fas fa-check'></i><span>Yêu Thích</span></div><div class='home-product-item__sale-off'><span class='home-product-item__sale-off-percent'>30%</span><span class='home-product-item__sale-off-label'>GIẢM</span></div></a></div>";
+		}
+		return html;
+	}
+	
 	@GetMapping("XoaSanPham")
 	@ResponseBody
 	public String XoaSanPhamTheoMaSanPham(@RequestParam int masanpham) {
